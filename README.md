@@ -73,14 +73,18 @@ GET /lotto
 POST /lotto
 Content-Type: application/x-www-form-urlencoded
 
-amount=5000
+name=박희운&amount=5000
 ```
 → Controller → Service → 번호 5세트 생성
 → View(result.jsp) 로 forward
 
-3) 당첨 번호 결과 확인 (사용자 입력 or 고정)
+3) 당첨 번호 결과 계산하고 View 로 확인 (사용자 입력 or 고정)
 ```
-GET /lotto/result?winning=1,7,15,23,34,42&bonus=5
+POST /lotto/result
+Content-Type: application/x-www-form-urlencoded
+
+winningNumber=1,2,3,4,5,6&bonusNumber=29
+
 ```
 → 로또 당첨 여부 계산해서 View로 전달
 
