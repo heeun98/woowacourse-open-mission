@@ -11,33 +11,38 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet(name = "helloServlet", urlPatterns = "/hello")
+@WebServlet(name = "helloServlet", urlPatterns = "/lotto")
 public class ServletV1 extends HttpServlet {
 
     @Override
     public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
 
-        String username = request.getParameter("name");
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
 
-        response.setContentType("text/plain");
-        response.setCharacterEncoding("utf-8");
+        out.write("""
+                <!DOCTYPE html>
+                <html lang="ko">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>로또 구매</title>
+                    <!-- Bootstrap CDN -->
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+                </head>
+                <body class="bg-light d-flex justify-content-center align-items-center" style="height: 100vh;">
 
+                <div class="text-center">
+                    <h1 class="mb-4">🎰 로또 구매하기</h1>
 
-        response.setContentType("text/html");
-        response.setCharacterEncoding("utf-8");
-        PrintWriter w = response.getWriter();
-        w.write("<!DOCTYPE html>\n" +
-                "<html>\n" +
-                "<head>\n" +
-                "    <meta charset=\"UTF-8\">\n" +
-                "    <title>Title</title>\n" +
-                "</head>\n" +
-                "<body>\n" +
-                "<form action=\"/servlet/members/save\" method=\"post\">\n" +
-                "    username: <input type=\"text\" name=\"username\" />\n" +
-                "    age:      <input type=\"text\" name=\"age\" />\n" +
-                " <button type=\"submit\">전송</button>\n" + "</form>\n" +
-                "</body>\n" +
-                "</html>\n");
+                    <form action="/lotto" method="post" class="p-4 bg-white rounded shadow" style="width: 350px;">
+                        <input class="form-control mb-3" type="text" name="name" placeholder="이름을 입력하세요" required>
+                        <input class="form-control mb-3" type="number" name="amount" placeholder="구매 금액 (예: 5000)" required>
+                        <button class="btn btn-primary w-100" type="submit">구매하기</button>
+                    </form>
+                </div>
+
+                </body>
+                </html>
+                """);
     }
 }
