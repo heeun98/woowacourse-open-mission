@@ -23,6 +23,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -33,6 +34,9 @@ dependencies {
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'com.github.woowacourse-projects:mission-utils:1.2.0'
+
+	implementation 'com.github.woowacourse-projects:mission-utils:1.2.0'
 }
 
 tasks.named('test') {
