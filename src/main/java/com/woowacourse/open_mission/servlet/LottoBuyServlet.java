@@ -1,23 +1,17 @@
 package com.woowacourse.open_mission.servlet;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import com.woowacourse.open_mission.LottoStore;
+import com.woowacourse.open_mission.LottoService;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Random;
 import java.util.regex.Pattern;
 
 
@@ -30,7 +24,7 @@ public class LottoBuyServlet extends HttpServlet {
     private static final int START_NUMBER = 1;
     private static final int END_NUMBER = 45;
     private static final int COUNT = 6;
-    private final LottoStore lottoStore = LottoStore.getInstance();
+    private final LottoService lottoService = LottoService.getInstance();
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -49,14 +43,14 @@ public class LottoBuyServlet extends HttpServlet {
 
         int ticketSize = amount / UNIT_PRICE;
 
-        lottoStore.initTickets(name);
+        lottoService.initTickets(name);
         for (int i = 0; i < ticketSize; i++) {
             List<Integer> numbers = Randoms.pickUniqueNumbersInRange(START_NUMBER, END_NUMBER, COUNT);
-            lottoStore.saveTicket(name, numbers);
+            lottoService.saveTicket(name, numbers);
         }
 
-        lottoStore.printCurrentStatus();
-        List<List<Integer>> tickets = lottoStore.getTickets(name);
+        lottoService.printCurrentStatus();
+        List<List<Integer>> tickets = lottoService.getTickets(name);
 
 
         response.setContentType("text/html; charset=UTF-8");
@@ -111,7 +105,7 @@ public class LottoBuyServlet extends HttpServlet {
 
         out.println("""
                 <hr class="my-4">
-                <a class="btn btn-success btn-lg" href="/lotto/winning">🎯 당첨 번호 생성하기</a>
+                <a class="btn btn-success btn-lg" href="/lotto/winning?name=%s">🎯 당첨 번호 생성하기</a>
                 
                 <div class="mt-4">
                     <a class="btn btn-outline-secondary" href="/">메인으로 돌아가기</a>
@@ -119,7 +113,7 @@ public class LottoBuyServlet extends HttpServlet {
                 
                 </body>
                 </html>
-                """);
+                """.formatted(name));
 
 
     }
