@@ -27,5 +27,7 @@ public class LottoCount {
 
     }
 
-
+    public Map<String, Integer> getCount() {
+        return count;
+    }
 }
