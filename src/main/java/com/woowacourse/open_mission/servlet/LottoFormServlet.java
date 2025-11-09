@@ -12,8 +12,13 @@ import java.io.PrintWriter;
 
 
 @WebServlet(name = "helloServlet", urlPatterns = "/lotto")
-public class ServletV1 extends HttpServlet {
+public class LottoFormServlet extends HttpServlet {
 
+    /**
+     * 이름 & 금액 입력 폼 화면 서블릿
+     * @param request
+     * @param response
+     */
     @Override
     public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
 
