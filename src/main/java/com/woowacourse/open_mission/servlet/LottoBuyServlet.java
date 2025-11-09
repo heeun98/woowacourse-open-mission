@@ -1,6 +1,7 @@
 package com.woowacourse.open_mission.servlet;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import com.woowacourse.open_mission.LottoStore;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
@@ -19,6 +20,9 @@ import java.util.regex.Pattern;
 
 @Slf4j
 public class LottoBuyServlet extends HttpServlet {
+
+    private final LottoStore lottoStore = LottoStore.getInstance();
+
 
     private static final String AMOUNT_PATTERN = "^\\d+$";
     private static final int UNIT_PRICE = 1000;

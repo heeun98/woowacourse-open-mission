@@ -33,5 +33,13 @@ public class LottoStore {
         return randomNumber.get(name);
     }
 
+    private LottoStore() {
+
+    };
+
+    public static LottoStore getInstance() {
+        return new LottoStore();
+    }
+
 
 }
