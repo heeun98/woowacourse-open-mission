@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Random;
 
-@WebServlet(name = "LottoGenerateServlet", urlPatterns = "/lotto/winning")
+@WebServlet(name = "LottoGenerateServlet", urlPatterns = "/servlet/lotto/winning")
 public class LottoGenerateServlet extends HttpServlet {
 
     private final LottoTicket lottoService = LottoTicket.getInstance();
@@ -69,8 +69,8 @@ public class LottoGenerateServlet extends HttpServlet {
                               <span class="badge text-bg-success">보너스: %d</span>
                             </div>
                             <div class="d-flex justify-content-center gap-3 mt-4">
-                              <a class="btn btn-success btn-lg" href="/lotto/result?name=%s">당첨 결과 확인하기</a>
-                              <a class="btn btn-outline-secondary btn-lg" href="/">메인으로</a>
+                              <a class="btn btn-success btn-lg" href="/servlet/lotto/result?name=%s">당첨 결과 확인하기</a>
+                              <a class="btn btn-outline-secondary btn-lg" href="/servlet">메인으로</a>
                             </div>
                           </div>
                         </div>

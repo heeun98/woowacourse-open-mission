@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 
 
 @Slf4j
-@WebServlet(name = "LottoBuyServlet", urlPatterns = "/lotto/buy")
+@WebServlet(name = "LottoBuyServlet", urlPatterns = "/servlet/lotto/buy")
 public class LottoBuyServlet extends HttpServlet {
 
     private static final String AMOUNT_PATTERN = "^\\d+$";
@@ -105,10 +105,10 @@ public class LottoBuyServlet extends HttpServlet {
 
         out.println("""
                 <hr class="my-4">
-                <a class="btn btn-success btn-lg" href="/lotto/winning?name=%s">🎯 당첨 번호 생성하기</a>
+                <a class="btn btn-success btn-lg" href="/servlet/lotto/winning?name=%s">🎯 당첨 번호 생성하기</a>
                 
                 <div class="mt-4">
-                    <a class="btn btn-outline-secondary" href="/">메인으로 돌아가기</a>
+                    <a class="btn btn-outline-secondary" href="/servlet">메인으로 돌아가기</a>
                 </div>
                 
                 </body>

@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 
-@WebServlet(name = "LottoResultServlet", urlPatterns = "/lotto/result")
+@WebServlet(name = "LottoResultServlet", urlPatterns = "/servlet/lotto/result")
 public class LottoResultServlet extends HttpServlet {
 
     @Override
@@ -68,7 +68,7 @@ public class LottoResultServlet extends HttpServlet {
                             </tbody>
                         </table>
                         <div class="text-center mt-3">
-                            <a href="/history" class="btn btn-secondary w-100">뒤로가기</a>
+                            <a href="/servlet/history" class="btn btn-secondary w-100">뒤로가기</a>
                         </div>
                     </div>
                 </body>

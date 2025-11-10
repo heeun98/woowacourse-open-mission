@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "LottoHistoryListServlet", urlPatterns = "/history")
+@WebServlet(name = "LottoHistoryListServlet", urlPatterns = "/servlet/history")
 public class LottoHistoryServlet extends HttpServlet {
 
     private final LottoTicket lottoService = LottoTicket.getInstance();
@@ -51,7 +51,7 @@ public class LottoHistoryServlet extends HttpServlet {
                 <tr>
                     <td>%s</td>
                     <td>%d</td>
-                    <td><a href="/lotto/result?name=%s" class="btn btn-primary btn-sm">결과 보기</a></td>
+                    <td><a href="/servlet/lotto/result?name=%s" class="btn btn-primary btn-sm">결과 보기</a></td>
                 </tr>
             """, name, count, name);
         }
