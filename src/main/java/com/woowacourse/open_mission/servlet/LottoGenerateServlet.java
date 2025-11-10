@@ -1,7 +1,7 @@
 package com.woowacourse.open_mission.servlet;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import com.woowacourse.open_mission.LottoService;
+import com.woowacourse.open_mission.LottoTicket;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,27 +16,31 @@ import java.util.Random;
 @WebServlet(name = "LottoGenerateServlet", urlPatterns = "/lotto/winning")
 public class LottoGenerateServlet extends HttpServlet {
 
-    private final LottoService lottoService = LottoService.getInstance();
+    private final LottoTicket lottoService = LottoTicket.getInstance();
+    private final static String NAME = "name";
+    private final static int END_NUM = 45;
+    private final static int START_NUM = 1;
+    private final static int COUNT = 6;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String name = request.getParameter("name"); // 사용자 이름
+        String name = request.getParameter(NAME); // 사용자 이름
 
         // 당첨 번호 생성
-        List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
+        List<Integer> numbers = Randoms.pickUniqueNumbersInRange(START_NUM, END_NUM, COUNT);
         numbers.sort(Integer::compareTo);
 
         //보너스 번호 생성
         Random random = new Random();
         int bonusNumber;
         while (true) {
-            bonusNumber = random.nextInt(45) + 1;
+            bonusNumber = random.nextInt(END_NUM) + START_NUM;
             if (!numbers.contains(bonusNumber)) break;
         }
 
         // 당첨 결과 계산 저장
-        lottoService.countMatchCount(name, numbers, bonusNumber);
+        lottoService.calculateMatchNumberCount(name, numbers, bonusNumber);
 
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();

@@ -8,17 +8,17 @@ import java.util.List;
 import java.util.Map;
 
 @Slf4j
-public class LottoService {
+public class LottoTicket {
 
 
     // key: 이름 , value : 티켓들 (여러장)
     private static Map<String, List<List<Integer>>> randomNumber = new HashMap<>();
-    private static LottoService lottoService = new LottoService();
+    private static LottoTicket lottoService = new LottoTicket();
 
 
 
     //싱글톤
-    private LottoService() {
+    private LottoTicket() {
     };
 
 
@@ -26,19 +26,19 @@ public class LottoService {
      * @param name : 사용자 이름
      * @param numbers : 당첨번호
      */
-    public void countMatchCount(String name, List<Integer> numbers, int bonus) {
+    public void calculateMatchNumberCount(String name, List<Integer> numbers, int bonusNumber) {
 
         List<List<Integer>> lists = randomNumber.get(name);
         LottoResult lottoResult = new LottoResult(name);
 
         for (List<Integer> list : lists) {
             int count = matchCount(list, numbers);
-            boolean matchBonus = matchBonus(list, bonus);
-            lottoResult.addResult(name, count, matchBonus);
+            boolean containBonusNumber = containBonusNumber(list, bonusNumber);
+            lottoResult.addResult(name, count, containBonusNumber);
         }
     }
 
-    private boolean matchBonus(List<Integer> list, int bonus) {
+    private boolean containBonusNumber(List<Integer> list, int bonus) {
         return list.contains(bonus);
     }
 
@@ -70,7 +70,7 @@ public class LottoService {
     }
 
 
-    public static LottoService getInstance() {
+    public static LottoTicket getInstance() {
         return lottoService;
     }
 

@@ -1,7 +1,7 @@
 package com.woowacourse.open_mission.servlet;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import com.woowacourse.open_mission.LottoService;
+import com.woowacourse.open_mission.LottoTicket;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -24,7 +24,7 @@ public class LottoBuyServlet extends HttpServlet {
     private static final int START_NUMBER = 1;
     private static final int END_NUMBER = 45;
     private static final int COUNT = 6;
-    private final LottoService lottoService = LottoService.getInstance();
+    private final LottoTicket lottoService = LottoTicket.getInstance();
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

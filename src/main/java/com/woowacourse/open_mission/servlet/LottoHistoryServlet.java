@@ -1,6 +1,6 @@
 package com.woowacourse.open_mission.servlet;
 
-import com.woowacourse.open_mission.LottoService;
+import com.woowacourse.open_mission.LottoTicket;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,7 +14,7 @@ import java.util.Map;
 @WebServlet(name = "LottoHistoryListServlet", urlPatterns = "/history")
 public class LottoHistoryServlet extends HttpServlet {
 
-    private final LottoService lottoService = LottoService.getInstance();
+    private final LottoTicket lottoService = LottoTicket.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
