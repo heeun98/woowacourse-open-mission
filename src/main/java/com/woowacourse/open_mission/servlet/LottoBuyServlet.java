@@ -49,7 +49,7 @@ public class LottoBuyServlet extends HttpServlet {
             lottoService.saveTicket(name, numbers);
         }
 
-        lottoService.printCurrentStatus();
+        lottoService.printTickets(name);
         List<List<Integer>> tickets = lottoService.getTickets(name);
 
 

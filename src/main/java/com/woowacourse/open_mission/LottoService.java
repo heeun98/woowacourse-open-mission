@@ -66,7 +66,7 @@ public class LottoService {
 
 
     public List<List<Integer>> getTickets(String name) {
-        return randomNumber.get(name);
+        return List.copyOf(randomNumber.get(name));
     }
 
 
@@ -78,10 +78,12 @@ public class LottoService {
         randomNumber.remove(name);
     }
 
-    public void printCurrentStatus() {
+    public void printTickets(String name) {
         log.info("발행된 숫자들");
-        log.info(randomNumber.toString());
+        log.info("-------");
+        randomNumber.get(name).stream()
+                .forEach(list -> log.info(list.toString()));
+        log.info("-------");
     }
-
 
 }
