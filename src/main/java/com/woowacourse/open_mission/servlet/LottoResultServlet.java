@@ -1,6 +1,5 @@
 package com.woowacourse.open_mission.servlet;
 
-import com.woowacourse.open_mission.LottoCount;
 import com.woowacourse.open_mission.LottoResult;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -12,7 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 
-@WebServlet(name = "LottoResultServlet", urlPatterns = "/lotto/result")
+@WebServlet(name = "LottoResultServlet", urlPatterns = "/servlet/lotto/result")
 public class LottoResultServlet extends HttpServlet {
 
     @Override
@@ -28,15 +27,9 @@ public class LottoResultServlet extends HttpServlet {
             return;
         }
 
-        LottoResult lottoResult = new LottoResult(name);
-        if (lottoResult == null) {
-            out.write("<h3>❌ 해당 사용자의 로또 결과가 없습니다.</h3>");
-            return;
-        }
-
         // 메시지 → 개수 Map
-        LottoCount lottoCount = lottoResult.getResult(name);
-        Map<String, Integer> resultData = lottoCount.getCount();
+        Map<String, Integer> resultData = LottoResult.getResult(name);
+        LottoResult.printResultData(name);
 
         out.write("""
                 <!DOCTYPE html>
@@ -75,7 +68,7 @@ public class LottoResultServlet extends HttpServlet {
                             </tbody>
                         </table>
                         <div class="text-center mt-3">
-                            <a href="/history" class="btn btn-secondary w-100">뒤로가기</a>
+                            <a href="/servlet/history" class="btn btn-secondary w-100">뒤로가기</a>
                         </div>
                     </div>
                 </body>

@@ -1,6 +1,6 @@
 package com.woowacourse.open_mission.servlet;
 
-import com.woowacourse.open_mission.LottoService;
+import com.woowacourse.open_mission.LottoTicket;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,10 +11,10 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "LottoHistoryListServlet", urlPatterns = "/history")
+@WebServlet(name = "LottoHistoryListServlet", urlPatterns = "/servlet/history")
 public class LottoHistoryServlet extends HttpServlet {
 
-    private final LottoService lottoService = LottoService.getInstance();
+    private final LottoTicket lottoService = LottoTicket.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -51,7 +51,7 @@ public class LottoHistoryServlet extends HttpServlet {
                 <tr>
                     <td>%s</td>
                     <td>%d</td>
-                    <td><a href="/lotto/result?name=%s" class="btn btn-primary btn-sm">결과 보기</a></td>
+                    <td><a href="/servlet/lotto/result?name=%s" class="btn btn-primary btn-sm">결과 보기</a></td>
                 </tr>
             """, name, count, name);
         }

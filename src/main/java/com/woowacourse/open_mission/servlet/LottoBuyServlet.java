@@ -1,7 +1,7 @@
 package com.woowacourse.open_mission.servlet;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import com.woowacourse.open_mission.LottoService;
+import com.woowacourse.open_mission.LottoTicket;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 
 
 @Slf4j
-@WebServlet(name = "LottoBuyServlet", urlPatterns = "/lotto/buy")
+@WebServlet(name = "LottoBuyServlet", urlPatterns = "/servlet/lotto/buy")
 public class LottoBuyServlet extends HttpServlet {
 
     private static final String AMOUNT_PATTERN = "^\\d+$";
@@ -24,7 +24,7 @@ public class LottoBuyServlet extends HttpServlet {
     private static final int START_NUMBER = 1;
     private static final int END_NUMBER = 45;
     private static final int COUNT = 6;
-    private final LottoService lottoService = LottoService.getInstance();
+    private final LottoTicket lottoService = LottoTicket.getInstance();
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -49,7 +49,7 @@ public class LottoBuyServlet extends HttpServlet {
             lottoService.saveTicket(name, numbers);
         }
 
-        lottoService.printCurrentStatus();
+        lottoService.printTickets(name);
         List<List<Integer>> tickets = lottoService.getTickets(name);
 
 
@@ -105,10 +105,10 @@ public class LottoBuyServlet extends HttpServlet {
 
         out.println("""
                 <hr class="my-4">
-                <a class="btn btn-success btn-lg" href="/lotto/winning?name=%s">🎯 당첨 번호 생성하기</a>
+                <a class="btn btn-success btn-lg" href="/servlet/lotto/winning?name=%s">🎯 당첨 번호 생성하기</a>
                 
                 <div class="mt-4">
-                    <a class="btn btn-outline-secondary" href="/">메인으로 돌아가기</a>
+                    <a class="btn btn-outline-secondary" href="/servlet">메인으로 돌아가기</a>
                 </div>
                 
                 </body>
