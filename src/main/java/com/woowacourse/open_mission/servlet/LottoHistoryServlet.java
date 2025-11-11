@@ -1,6 +1,7 @@
 package com.woowacourse.open_mission.servlet;
 
-import com.woowacourse.open_mission.LottoTicket;
+
+import com.woowacourse.open_mission.servlet.domain.LottoTicket;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

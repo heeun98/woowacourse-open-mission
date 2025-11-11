@@ -1,4 +1,6 @@
-package com.woowacourse.open_mission;
+package com.woowacourse.open_mission.servlet.domain;
+
+import com.woowacourse.open_mission.Rank;
 
 import java.util.HashMap;
 import java.util.Map;
