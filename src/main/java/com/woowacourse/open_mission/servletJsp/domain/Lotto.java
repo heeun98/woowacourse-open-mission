@@ -2,13 +2,12 @@ package com.woowacourse.open_mission.servletJsp.domain;
 
 import java.util.List;
 
+import static com.woowacourse.open_mission.servletJsp.domain.LottoConstant.*;
+
 public class Lotto {
 
     private List<Integer> numbers; // 당첨 번호
     private int bonusNumber;
-
-    private static final int START_NUMBER = 1;
-    private static final int END_NUMBER = 45;
 
     public Lotto(List<Integer> numbers, int bonusNumber) {
         validateNumbers(numbers);
