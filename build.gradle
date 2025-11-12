@@ -28,18 +28,30 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// JSP 엔진
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+
+	// JSTL (JSP에서 ${} EL, <c:forEach> 등 사용 가능)
+	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0'
+	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1'
+
+	// Servlet API (컴파일 시에만 필요, 내장 Tomcat이 런타임 제공함)
+	compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+
+	// Lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// H2 DB (조회 기능까지 가면 씀)
 	runtimeOnly 'com.h2database:h2'
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// 미션 유틸
 	implementation 'com.github.woowacourse-projects:mission-utils:1.2.0'
 
-	implementation 'com.github.woowacourse-projects:mission-utils:1.2.0'
-	implementation 'jakarta.servlet:jakarta.servlet-api'
-	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
-	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
+	// Test
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
