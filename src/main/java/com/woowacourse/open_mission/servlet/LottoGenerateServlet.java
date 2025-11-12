@@ -1,7 +1,8 @@
 package com.woowacourse.open_mission.servlet;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import com.woowacourse.open_mission.LottoTicket;
+
+import com.woowacourse.open_mission.servlet.domain.LottoTicket;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

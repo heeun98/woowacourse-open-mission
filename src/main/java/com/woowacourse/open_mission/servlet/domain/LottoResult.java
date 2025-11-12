@@ -1,10 +1,9 @@
-package com.woowacourse.open_mission;
+package com.woowacourse.open_mission.servlet.domain;
 
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 @Slf4j
 public class LottoResult {
