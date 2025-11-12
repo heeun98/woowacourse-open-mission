@@ -4,25 +4,10 @@ import java.util.List;
 
 public class IssuedLotto {
 
-
+    // 로또 티켓 한장
     private List<Integer> issuedNumbers;
-    private static final int START_NUMBER = 1;
-    private static final int END_NUMBER = 45;
 
-    public IssuedLotto(List<Integer> issuedNumbers) {
-        validate(issuedNumbers);
-        this.issuedNumbers = issuedNumbers;
+    public IssuedLotto(Generator<Integer> generator) {
+        this.issuedNumbers = generator.generate();
     }
-
-    private void validate(List<Integer> issuedNumbers) {
-
-        issuedNumbers.stream()
-                .forEach(number -> {
-                    if (number < START_NUMBER || number > END_NUMBER) {
-                        throw new IllegalArgumentException();
-                    }
-                });
-    }
-
-
 }
