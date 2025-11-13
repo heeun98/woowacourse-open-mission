@@ -11,7 +11,7 @@
 <h1 class="mb-4">🎰 로또 서비스</h1>
 <div class="d-flex gap-3">
     <a class="btn btn-primary btn-lg" href="/servlet/jsp/lotto">로또 시작하기</a>
-    <a class="btn btn-secondary btn-lg" href="/servlet/history">조회하기</a>
+    <a class="btn btn-secondary btn-lg" href="/servlet/jsp/history">조회하기</a>
 </div>
 </body>
 </html>
