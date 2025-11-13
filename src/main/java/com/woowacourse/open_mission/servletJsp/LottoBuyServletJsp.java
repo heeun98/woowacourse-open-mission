@@ -15,7 +15,7 @@ import java.lang.reflect.Member;
 import java.util.List;
 
 @Slf4j
-@WebServlet(name = "LottoBuyServletJsp", value = "/servlet/lotto/buy")
+@WebServlet(name = "LottoBuyServletJsp", value = "/servlet/jsp/buy")
 public class LottoBuyServletJsp extends HttpServlet {
 
     MemberRepository memberRepository = MemberRepository.getInstance();
@@ -23,16 +23,23 @@ public class LottoBuyServletJsp extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        log.info("LottoBuyServletJsp 호출");
         String name = extractParam(request,"name");
         int amount = Integer.parseInt(extractParam(request, "amount"));
 
         LottoTickets lottoTickets = new LottoTickets(amount);
         List<IssuedLotto> issuedLottos = lottoTickets.buyTickets();
 
+
         memberRepository.save(name, lottoTickets);
+
+        request.setAttribute("name", name);
+        request.setAttribute("issuedLottos", issuedLottos);
+        request.getRequestDispatcher("/WEB-INF/views/lotto-result.jsp").forward(request, response);
+
     }
 
     private String extractParam(HttpServletRequest request, String param) {
-        return request.getParameter("name");
+        return request.getParameter(param);
     }
 }
