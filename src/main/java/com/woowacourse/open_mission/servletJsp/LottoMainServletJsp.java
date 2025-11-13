@@ -16,7 +16,7 @@ public class LottoMainServletJsp extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.info("메인 서블릿 호출");
+        log.info("LottoMainServletJsp호출");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/lotto-main.jsp");
                 
         
