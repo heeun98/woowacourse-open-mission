@@ -17,6 +17,15 @@ public class Lotto {
         this.bonusNumber = bonusNumber;
     }
 
+
+    public List<Integer> getNumbers() {
+        return List.copyOf(numbers);
+    }
+
+    public int getBonusNumber() {
+        return bonusNumber;
+    }
+
     private void validateDuplicate(List<Integer> numbers, int bonusNumber) {
         if (numbers.contains(bonusNumber)) {
             throw new IllegalArgumentException();
