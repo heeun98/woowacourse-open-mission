@@ -43,7 +43,7 @@ public class LottoBuyServletJsp extends HttpServlet {
 
         request.setAttribute("name", name);
         request.setAttribute("issuedLottos", issuedLottos);
-        request.getRequestDispatcher("/WEB-INF/views/lotto-result.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/views/lotto-issued.jsp").forward(request, response);
 
     }
 
