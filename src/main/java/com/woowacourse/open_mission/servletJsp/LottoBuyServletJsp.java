@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -30,8 +31,15 @@ public class LottoBuyServletJsp extends HttpServlet {
         LottoTickets lottoTickets = new LottoTickets(amount);
         List<IssuedLotto> issuedLottos = lottoTickets.buyTickets();
 
+        //IssuedLotto 티켓한장!!
 
         memberRepository.save(name, lottoTickets);
+
+        //세션에 로또티켓들과 이름 넣기
+        HttpSession session = request.getSession();
+        session.setAttribute("issuedLotto", issuedLottos);
+        session.setAttribute("name", name);
+
 
         request.setAttribute("name", name);
         request.setAttribute("issuedLottos", issuedLottos);
