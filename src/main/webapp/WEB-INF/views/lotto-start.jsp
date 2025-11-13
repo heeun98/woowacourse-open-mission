@@ -26,7 +26,7 @@
 <div class="lotto-form text-center">
   <h1 class="mb-4">🎰 로또 구매하기</h1>
 
-  <form action="/servlet/lotto/buy" method="post">
+  <form action="/servlet/jsp/buy" method="post">
     <input class="form-control mb-3" type="text" name="name" placeholder="이름을 입력하세요" required>
     <input class="form-control mb-3" type="number" name="amount" placeholder="구매 금액 (예: 5000)" required>
     <button class="btn btn-primary w-100" type="submit">구매하기</button>
