@@ -50,10 +50,15 @@ public class Lotto {
                 });
     }
 
+
     public int matchCount(List<Integer> lottoNumbers) {
        return (int) numbers.stream()
                .filter(number -> lottoNumbers.contains(number))
                .count();
+    }
+
+    public boolean matchBonus(List<Integer> lottoNumbers) {
+        return lottoNumbers.contains(bonusNumber);
     }
 
 
