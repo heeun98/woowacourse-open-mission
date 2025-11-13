@@ -1,5 +1,6 @@
 package com.woowacourse.open_mission.servletJsp.domain;
 
+import java.util.Collections;
 import java.util.List;
 
 public class IssuedLotto {
@@ -8,7 +9,9 @@ public class IssuedLotto {
     private List<Integer> issuedNumbers;
 
     public IssuedLotto(Generator<Integer> generator) {
-        this.issuedNumbers = generator.generate();
+        List<Integer> generate = generator.generate();
+        generate.sort(((o1, o2) -> o1 - o2));
+        this.issuedNumbers = generate;
     }
 
     public List<Integer> getIssuedNumbers() {
