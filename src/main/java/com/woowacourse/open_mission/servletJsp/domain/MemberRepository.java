@@ -29,4 +29,8 @@ public class MemberRepository {
     public static MemberRepository getInstance() {
         return memberRepository;
     }
+
+    public List<LottoTickets> getLottoTicketsByName(String name) {
+        return List.copyOf(memberTickets.get(name));
+    }
 }
