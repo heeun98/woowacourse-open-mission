@@ -17,7 +17,7 @@ public class LottoStartServletJsp extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.info("로또 시작하기 폼 서블릿 호출");
+        log.info("LottoStartServletJsp 호출");
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/lotto-start.jsp");
 

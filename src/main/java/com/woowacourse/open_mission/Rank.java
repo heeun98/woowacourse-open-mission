@@ -1,5 +1,6 @@
 package com.woowacourse.open_mission;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -31,12 +32,11 @@ public enum Rank {
         return null;
     }
 
-    public static List<String> getAllMessage() {
 
-        return Stream.of(values())
-                .map(i -> i.message)
+    public static List<String> getAllMessages() {
+        return Arrays.stream(values())
+                .map(rank -> rank.getMessage())
                 .toList();
-
     }
 
 

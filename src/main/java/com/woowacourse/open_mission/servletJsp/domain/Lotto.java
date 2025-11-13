@@ -17,6 +17,15 @@ public class Lotto {
         this.bonusNumber = bonusNumber;
     }
 
+
+    public List<Integer> getNumbers() {
+        return List.copyOf(numbers);
+    }
+
+    public int getBonusNumber() {
+        return bonusNumber;
+    }
+
     private void validateDuplicate(List<Integer> numbers, int bonusNumber) {
         if (numbers.contains(bonusNumber)) {
             throw new IllegalArgumentException();
@@ -41,10 +50,15 @@ public class Lotto {
                 });
     }
 
+
     public int matchCount(List<Integer> lottoNumbers) {
        return (int) numbers.stream()
                .filter(number -> lottoNumbers.contains(number))
                .count();
+    }
+
+    public boolean matchBonus(List<Integer> lottoNumbers) {
+        return lottoNumbers.contains(bonusNumber);
     }
 
 
