@@ -1,16 +1,21 @@
 package com.woowacourse.open_mission.servletJsp.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.woowacourse.open_mission.servletJsp.domain.LottoConstant.*;
 
 public class LottoTickets {
 
-
     private List<IssuedLotto> issuedLottoList;
+    private int amount;
 
+    public LottoTickets(int amount) {
+        this.issuedLottoList = new ArrayList<>();
+        this.amount = amount;
+    }
 
-    public List<IssuedLotto> buyTickets(int amount) {
+    public List<IssuedLotto> buyTickets() {
         if (amount % TICKET_PRICE != 0) {
             throw new IllegalArgumentException();
         }
@@ -27,6 +32,5 @@ public class LottoTickets {
     private int getTicketSize(int amount) {
         return amount / TICKET_PRICE;
     }
-
 
 }
