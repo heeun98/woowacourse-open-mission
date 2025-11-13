@@ -15,7 +15,7 @@ public class LottoCount {
     }
 
     private void initMap() {
-        for (String message : Rank.getAllMessage()) {
+        for (String message : Rank.getAllMessages()) {
             count.put(message, 0);
         }
     }
