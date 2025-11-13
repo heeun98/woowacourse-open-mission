@@ -10,4 +10,8 @@ public class IssuedLotto {
     public IssuedLotto(Generator<Integer> generator) {
         this.issuedNumbers = generator.generate();
     }
+
+    public List<Integer> getIssuedNumbers() {
+        return List.copyOf(issuedNumbers);
+    }
 }
