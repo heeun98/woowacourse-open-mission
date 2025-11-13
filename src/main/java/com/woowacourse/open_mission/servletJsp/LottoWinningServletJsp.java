@@ -48,6 +48,7 @@ public class LottoWinningServletJsp extends HttpServlet {
         List<IssuedLotto> issuedLottoList = (List<IssuedLotto>) request.getSession().getAttribute("issuedLotto");
 
         MemberResult memberResult = new MemberResult(name);
+        memberResult.initResult();
 
         issuedLottoList.stream()
                 .map(issuedLotto -> issuedLotto.getIssuedNumbers())
