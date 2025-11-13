@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 import java.util.Map;
 
-@WebServlet(name = "LottoCurrentResultServlet", value = "/servlet/jsp/result")
+@WebServlet(name = "LottoCurrentResultServlet", value = "/servlet/jsp/current-result")
 @Slf4j
 public class LottoCurrentResultServlet extends HttpServlet {
 
