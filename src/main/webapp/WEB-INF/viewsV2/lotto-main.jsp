@@ -1,4 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page import="com.woowacourse.open_mission.servletJspSession.domain.Member" %>
+
+<%
+    Member member = (Member) request.getAttribute("member");
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -43,12 +49,26 @@
             color: white;
             border-color: #5cb78c;
         }
+
+        /* 환영 메시지 */
+        .welcome-message {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #74c69d;
+            margin-bottom: 1.5rem;
+        }
     </style>
 </head>
 
 <body class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
 
 <div class="card card-custom text-center">
+
+    <!-- 환영 메시지 -->
+    <div class="welcome-message">
+        <%= member != null ? member.getUsername() + "님 환영합니다!" : "게스트님 환영합니다!" %>
+    </div>
+
     <h1 class="fw-bold mb-4">🎰 로또 서비스</h1>
 
     <div class="d-grid gap-3">
