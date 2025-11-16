@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "LottoJoinServlet", value = "/v3/servlet/jsp/join")
-public class LottoJoinServlet extends HttpServlet {
+@WebServlet(name = "LottoJoinServlet", value = "/v3/servlet/jsp/join-form")
+public class LottoJoinFormServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

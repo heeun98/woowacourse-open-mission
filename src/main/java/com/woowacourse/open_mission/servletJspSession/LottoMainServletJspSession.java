@@ -18,9 +18,6 @@ public class LottoMainServletJspSession extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("LottoMainServletJsp호출");
 
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/viewsV2/lotto-main.jsp");
                 
         
