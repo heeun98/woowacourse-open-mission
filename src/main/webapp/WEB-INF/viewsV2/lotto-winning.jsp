@@ -1,9 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
-<%@ page import="com.woowacourse.open_mission.servletJsp.domain.Lotto" %>
+<%@ page import="com.woowacourse.open_mission.servletJspSession.domain.Lotto" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.woowacourse.open_mission.servletJspSession.domain.Member" %>
 
 <%
-  String name = (String) request.getAttribute("name");
+  Member member = (Member) request.getAttribute("member");
+  String name = member.getUsername();
   Lotto lotto = (Lotto) request.getAttribute("lotto");
   List<Integer> numbers = lotto.getNumbers();
   int bonus = lotto.getBonusNumber();
@@ -90,7 +92,7 @@
   <h5 class="bonus-number mb-4">보너스 번호 🎁 <%= bonus %></h5>
 
   <div class="d-grid gap-3">
-    <a class="btn btn-main" href="/v3/servlet/jsp/current-result?name=<%= name %>">
+    <a class="btn btn-main" href="/v3/servlet/jsp/current-result">
       당첨 결과 확인하기
     </a>
     <a class="btn btn-outline-main" href="/v3/servlet/jsp">

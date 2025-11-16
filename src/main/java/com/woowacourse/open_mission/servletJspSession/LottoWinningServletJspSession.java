@@ -1,12 +1,10 @@
 package com.woowacourse.open_mission.servletJspSession;
 
 import com.woowacourse.open_mission.Rank;
-import com.woowacourse.open_mission.servletJsp.domain.*;
+import com.woowacourse.open_mission.servletJspSession.domain.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -17,21 +15,29 @@ import java.util.Random;
 @WebServlet(name = "LottoWinningServletJspSession", value = "/v3/servlet/jsp/winning")
 public class LottoWinningServletJspSession extends HttpServlet {
 
-
     private final MemberResultRepository memberResultRepository = MemberResultRepository.getInstance();
+    private final MemberRepository memberRepository = MemberRepository.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                log.info("cookie {} : {}", cookie.getName(), cookie.getValue());
+            }
+        } else {
+            log.info("쿠키 없음");
+        }
 
         log.info("LottoWinningServletJsp 호출됨");
 
-        //당첨 번호 생성
+        // 당첨 번호 생성
         NumberGenerator numberGenerator = new NumberGenerator();
         List<Integer> lottoNumbers = numberGenerator.generate();
         lottoNumbers.sort(Integer::compareTo);
 
-        //보너스 번호 생성
+        // 보너스 번호 생성
         Random random = new Random();
         int bonusNumber;
         while (true) {
@@ -39,14 +45,18 @@ public class LottoWinningServletJspSession extends HttpServlet {
             if (!lottoNumbers.contains(bonusNumber)) break;
         }
 
-        //Lotto 객체 생성
+        // Lotto 객체 생성
         Lotto lotto = new Lotto(lottoNumbers, bonusNumber);
 
+        // member 세션에서 가져오기
+        HttpSession session = request.getSession();
+        log.info(session.getId());
+        Long id = (Long) session.getAttribute("id");
+        Member member = memberRepository.findById(id);
 
-        String name = (String) request.getSession().getAttribute("name");
-        List<IssuedLotto> issuedLottoList = (List<IssuedLotto>) request.getSession().getAttribute("issuedLotto");
+        List<IssuedLotto> issuedLottoList = (List<IssuedLotto>) session.getAttribute("issuedLotto");
 
-        MemberResult memberResult = new MemberResult(name);
+        MemberResult memberResult = new MemberResult(member.getUsername());
         memberResult.initResult();
 
         issuedLottoList.stream()
@@ -59,18 +69,20 @@ public class LottoWinningServletJspSession extends HttpServlet {
                         memberResult.addResultCount(matchMessage);
                     }
                 });
-
         memberResultRepository.addMemberResult(memberResult);
 
-        request.getSession().setAttribute("memberResult", memberResult);
+        // 세션에 결과 저장
+        log.info("memberResult 넣기 전: "+ session.getId());
+        session.setAttribute("memberResult", memberResult);
+        log.info("memberResult 넣은 후: "+ session.getId());
 
-        //JSP로 전달할 데이터 설정
+        // JSP로 전달할 데이터 설정
         request.setAttribute("lotto", lotto);
 
-        //사용자 이름 세션에서 가져오기
-        request.setAttribute("name", name);
+        // 사용자 정보 넘기기
+        request.setAttribute("member", member);
 
-        //SP 뷰로 forward
+        // JSP 뷰로 forward
         request.getRequestDispatcher("/WEB-INF/viewsV2/lotto-winning.jsp")
                 .forward(request, response);
     }
