@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 import java.util.Map;
 
-@WebServlet(name = "LottoCurrentResultServletSession", value = "/servlet/jsp/current-result/v2")
+@WebServlet(name = "LottoCurrentResultServletSession", value = "/v3/servlet/jsp/current-result")
 @Slf4j
 public class LottoCurrentResultServletSession extends HttpServlet {
 
@@ -32,7 +32,7 @@ public class LottoCurrentResultServletSession extends HttpServlet {
         }
 
         request.setAttribute("memberResult", memberResult);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/lotto-current-result.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/viewsV2/lotto-current-result.jsp");
         dispatcher.forward(request, response);
 
     }

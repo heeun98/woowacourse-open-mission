@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 import java.util.Map;
 
-@WebServlet(name = "LottoHistoryServletJspSession", value = "/servlet/jsp/history/v2")
+@WebServlet(name = "LottoHistoryServletJspSession", value = "/v3/servlet/jsp/history")
 @Slf4j
 public class LottoHistoryServletJspSession extends HttpServlet {
 
@@ -23,7 +23,7 @@ public class LottoHistoryServletJspSession extends HttpServlet {
         log.info("LottoHistoryServletJsp");
         Map<Long, MemberResult> memberResultMap = memberResultRepository.getMemberResultList();
         request.setAttribute("memberResultList", memberResultMap);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/lotto-history.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/viewsV2/lotto-history.jsp");
         dispatcher.forward(request, response);
     }
 }

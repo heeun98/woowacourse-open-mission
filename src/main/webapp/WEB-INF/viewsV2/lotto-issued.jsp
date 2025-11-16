@@ -55,10 +55,10 @@
 %>
 
 <hr class="my-4">
-<a class="btn btn-success btn-lg" href="/servlet/jsp/winning/v2">🎯 당첨 번호 생성하기</a>
+<a class="btn btn-success btn-lg" href="/v3/servlet/jsp/winning">🎯 당첨 번호 생성하기</a>
 
 <div class="mt-4">
-  <a class="btn btn-outline-secondary" href="/servlet/jsp/v2">메인으로 돌아가기</a>
+  <a class="btn btn-outline-secondary" href="/v3/servlet/jsp">메인으로 돌아가기</a>
 </div>
 
 </body>

@@ -62,7 +62,7 @@
 </table>
 
 <div class="mt-3">
-    <a href="/servlet/jsp/v2" class="btn btn-outline-secondary">메인으로 돌아가기</a>
+    <a href="/v3/servlet/jsp" class="btn btn-outline-secondary">메인으로 돌아가기</a>
 </div>
 
 </body>

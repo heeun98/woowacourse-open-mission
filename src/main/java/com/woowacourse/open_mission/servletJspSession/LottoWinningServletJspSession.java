@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Random;
 
 @Slf4j
-@WebServlet(name = "LottoWinningServletJspSession", value = "/servlet/jsp/winning/v2")
+@WebServlet(name = "LottoWinningServletJspSession", value = "/v3/servlet/jsp/winning")
 public class LottoWinningServletJspSession extends HttpServlet {
 
 
@@ -71,7 +71,7 @@ public class LottoWinningServletJspSession extends HttpServlet {
         request.setAttribute("name", name);
 
         //SP 뷰로 forward
-        request.getRequestDispatcher("/WEB-INF/views/lotto-winning.jsp")
+        request.getRequestDispatcher("/WEB-INF/viewsV2/lotto-winning.jsp")
                 .forward(request, response);
     }
 }

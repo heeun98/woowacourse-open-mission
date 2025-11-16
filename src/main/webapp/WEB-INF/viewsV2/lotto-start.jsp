@@ -45,14 +45,14 @@
      지금까지 판매된 로또 수: <strong><%= totalBuyCount %></strong> 장
   </div>
 
-  <form action="/servlet/jsp/buy" method="post">
+  <form action="/v3/servlet/jsp/buy" method="post">
     <input class="form-control mb-3" type="text" name="name" placeholder="이름을 입력하세요" required>
     <input class="form-control mb-3" type="number" name="amount" placeholder="구매 금액 (예: 5000)" required>
     <button class="btn btn-primary w-100" type="submit">구매하기</button>
   </form>
 
   <div class="mt-4">
-    <a href="/servlet/jsp/v2" class="btn btn-outline-secondary w-100">⬅ 메인으로 돌아가기</a>
+    <a href="/v3/servlet/jsp" class="btn btn-outline-secondary w-100">⬅ 메인으로 돌아가기</a>
   </div>
 </div>
 

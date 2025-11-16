@@ -1,56 +1,37 @@
 package com.woowacourse.open_mission.servletJspSession.domain;
 
-import com.woowacourse.open_mission.servletJsp.domain.LottoTickets;
+import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.*;
 
+@Slf4j
 public class MemberRepository {
 
-    // key: 이름, value: 구매한 로또들
-    private Map<String, List<com.woowacourse.open_mission.servletJsp.domain.LottoTickets>> memberTickets;
+    private static Map<Long, Member> store = new HashMap<>();
+    private static long sequence = 0L;
 
-    // 총 구매 횟수
-    private AtomicInteger totalBuyCount = new AtomicInteger(0);
-
-    private MemberRepository() {
-        this.memberTickets = new ConcurrentHashMap<>();
+    public Member save(Member member) {
+        member.setId(++sequence);
+        log.info("save: member={}", member);
+        store.put(member.getId(), member);
+        return member;
     }
 
-    private static final MemberRepository memberRepository = new MemberRepository();
-
-    public void save(String name, com.woowacourse.open_mission.servletJsp.domain.LottoTickets lottoTickets) {
-        if (memberTickets.containsKey(name)) {
-            memberTickets.get(name).add(lottoTickets);
-            return;
-        }
-        List<com.woowacourse.open_mission.servletJsp.domain.LottoTickets> lottoTicketsList = new ArrayList<>();
-        lottoTicketsList.add(lottoTickets);
-        memberTickets.put(name, lottoTicketsList);
-        addTotalCount();
-
-    }
-    public void addTotalCount() {
-        totalBuyCount.incrementAndGet();
+    public Member findById(Long id) {
+        return store.get(id);
     }
 
-
-
-    public static MemberRepository getInstance() {
-        return memberRepository;
+    public Optional<Member> findByLoginId(String loginId) {
+        return findAll().stream()
+                .filter(m -> m.getLoginId().equals(loginId))
+                .findFirst();
     }
 
-    public List<LottoTickets> getLottoTicketsByName(String name) {
-        return List.copyOf(memberTickets.get(name));
+    public List<Member> findAll() {
+        return new ArrayList<>(store.values());
     }
 
-    public int getTotalBuyCount() {
-        return totalBuyCount.get();
+    public void clearStore() {
+        store.clear();
     }
-
-
 }

@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "LottoResultServletJspSession", value = "/servlet/jsp/result/v2")
+@WebServlet(name = "LottoResultServletJspSession", value = "/v3/servlet/jsp/result")
 public class LottoResultServletJspSession extends HttpServlet {
 
     MemberResultRepository memberResultRepository = MemberResultRepository.getInstance();
@@ -22,7 +22,7 @@ public class LottoResultServletJspSession extends HttpServlet {
         Long resultId = Long.valueOf(request.getParameter("resultId"));
         MemberResult memberResult = memberResultRepository.getMemberResultById(resultId);
         request.setAttribute("memberResult", memberResult);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/lotto-result.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/viewsV2/lotto-result.jsp");
         dispatcher.forward(request, response);
     }
 

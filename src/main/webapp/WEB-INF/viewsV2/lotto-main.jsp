@@ -10,8 +10,8 @@
 <body class="d-flex flex-column justify-content-center align-items-center text-center" style="height:100vh;">
 <h1 class="mb-4">🎰 로또 서비스</h1>
 <div class="d-flex gap-3">
-    <a class="btn btn-primary btn-lg" href="/servlet/jsp/lotto/v2">로또 시작하기</a>
-    <a class="btn btn-secondary btn-lg" href="/servlet/jsp/history/v2">조회하기</a>
+    <a class="btn btn-primary btn-lg" href="/v3/servlet/jsp/lotto">로또 시작하기</a>
+    <a class="btn btn-secondary btn-lg" href="/v3/servlet/jsp/history">조회하기</a>
 </div>
 </body>
 </html>

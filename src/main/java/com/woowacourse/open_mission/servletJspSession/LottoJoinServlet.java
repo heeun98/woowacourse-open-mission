@@ -6,24 +6,16 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 
-
-@Slf4j
-@WebServlet(name = "LottoMainServletJspSession", urlPatterns = "/v3/servlet/jsp")
-public class LottoMainServletJspSession extends HttpServlet {
+@WebServlet(name = "LottoJoinServlet", value = "/v3/servlet/jsp/join")
+public class LottoJoinServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.info("LottoMainServletJsp호출");
 
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/viewsV2/lotto-main.jsp");
-                
-        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/viewsV2/lotto-join.jsp");
         dispatcher.forward(request, response);
     }
 }

@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Slf4j
-@WebServlet(name = "LottoBuyServletJspSession", value = "/servlet/jsp/buy/v2")
+@WebServlet(name = "LottoBuyServletJspSession", value = "/v3/servlet/jsp/buy")
 public class LottoBuyServletJspSession extends HttpServlet {
 
     MemberRepository memberRepository = MemberRepository.getInstance();
@@ -42,7 +42,7 @@ public class LottoBuyServletJspSession extends HttpServlet {
 
         request.setAttribute("name", name);
         request.setAttribute("issuedLottos", issuedLottos);
-        request.getRequestDispatcher("/WEB-INF/views/lotto-issued.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/viewsV2/lotto-issued.jsp").forward(request, response);
 
     }
 

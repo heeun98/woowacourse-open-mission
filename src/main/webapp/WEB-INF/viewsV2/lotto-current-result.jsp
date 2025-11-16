@@ -64,7 +64,7 @@
     </table>
 
     <div class="text-center mt-4">
-        <a href="/servlet/jsp/v2" class="btn btn-secondary w-100">메인으로 돌아가기</a>
+        <a href="/v3/servlet/jsp" class="btn btn-secondary w-100">메인으로 돌아가기</a>
     </div>
 </div>
 

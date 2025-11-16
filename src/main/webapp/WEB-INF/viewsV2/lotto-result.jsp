@@ -57,7 +57,7 @@
     </table>
 
     <div class="text-center mt-4">
-        <a href="/servlet/jsp/history/v2" class="btn btn-secondary w-100">뒤로가기</a>
+        <a href="/v3/servlet/jsp/history" class="btn btn-secondary w-100">뒤로가기</a>
     </div>
 </div>
 

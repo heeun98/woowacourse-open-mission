@@ -46,8 +46,8 @@
       <h5 class="text-success">보너스 번호 🎁 <%= bonus %></h5>
 
       <div class="mt-4">
-        <a class="btn btn-success btn-lg" href="/servlet/jsp/current-result/v2?name=<%= name %>">당첨 결과 확인하기</a>
-        <a class="btn btn-outline-secondary btn-lg" href="/servlet/jsp/v2">메인으로</a>
+        <a class="btn btn-success btn-lg" href="/v3/servlet/jsp/current-result?name=<%= name %>">당첨 결과 확인하기</a>
+        <a class="btn btn-outline-secondary btn-lg" href="/v3/servlet/jsp">메인으로</a>
       </div>
     </div>
   </div>

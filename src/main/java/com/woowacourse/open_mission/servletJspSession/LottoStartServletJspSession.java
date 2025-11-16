@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 
 @Slf4j
-@WebServlet(name = "LottoStartServletJspSession", value = "/servlet/jsp/lotto/v2")
+@WebServlet(name = "LottoStartServletJspSession", value = "/v3/servlet/jsp/lotto")
 public class LottoStartServletJspSession extends HttpServlet {
 
 
@@ -25,7 +25,7 @@ public class LottoStartServletJspSession extends HttpServlet {
         int totalBuyCount = memberRepository.getTotalBuyCount();
         request.setAttribute("totalBuyCount", totalBuyCount);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/lotto-start.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/viewsV2/lotto-start.jsp");
 
         dispatcher.forward(request, response);
 
