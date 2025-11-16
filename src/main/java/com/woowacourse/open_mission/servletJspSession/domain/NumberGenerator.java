@@ -1,8 +1,8 @@
 package com.woowacourse.open_mission.servletJspSession.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import com.woowacourse.open_mission.servletJsp.domain.Generator;
-import com.woowacourse.open_mission.servletJsp.domain.LottoConstant;
+import com.woowacourse.open_mission.servletJspSession.domain.Generator;
+import com.woowacourse.open_mission.servletJspSession.domain.LottoConstant;
 
 import java.util.List;
 

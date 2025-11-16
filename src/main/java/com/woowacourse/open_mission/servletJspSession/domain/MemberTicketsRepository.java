@@ -1,7 +1,5 @@
 package com.woowacourse.open_mission.servletJspSession.domain;
 
-import com.woowacourse.open_mission.servletJsp.domain.LottoTickets;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class MemberTicketsRepository {
 
     // key: 이름, value: 구매한 로또들
-    private Map<String, List<com.woowacourse.open_mission.servletJsp.domain.LottoTickets>> memberTickets;
+    private Map<String, List<LottoTickets>> memberTickets;
 
     // 총 구매 횟수
     private AtomicInteger totalBuyCount = new AtomicInteger(0);
@@ -22,12 +20,12 @@ public class MemberTicketsRepository {
 
     private static final MemberTicketsRepository memberRepository = new MemberTicketsRepository();
 
-    public void save(String name, com.woowacourse.open_mission.servletJsp.domain.LottoTickets lottoTickets) {
+    public void save(String name, LottoTickets lottoTickets) {
         if (memberTickets.containsKey(name)) {
             memberTickets.get(name).add(lottoTickets);
             return;
         }
-        List<com.woowacourse.open_mission.servletJsp.domain.LottoTickets> lottoTicketsList = new ArrayList<>();
+        List<LottoTickets> lottoTicketsList = new ArrayList<>();
         lottoTicketsList.add(lottoTickets);
         memberTickets.put(name, lottoTicketsList);
         addTotalCount();

@@ -2,7 +2,7 @@ package com.woowacourse.open_mission.servletJspSession.domain;
 
 import java.util.List;
 
-import static com.woowacourse.open_mission.servletJsp.domain.LottoConstant.*;
+import static com.woowacourse.open_mission.servletJspSession.domain.LottoConstant.*;
 
 public class Lotto {
 

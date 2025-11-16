@@ -1,8 +1,7 @@
 package com.woowacourse.open_mission.servletJspSession.domain;
 
-import com.woowacourse.open_mission.servletJsp.domain.Generator;
+import com.woowacourse.open_mission.servletJspSession.domain.Generator;
 
-import java.util.Collections;
 import java.util.List;
 
 public class IssuedLotto {
