@@ -74,7 +74,6 @@
 
   <!-- 구매 폼 -->
   <form action="/v3/servlet/jsp/buy" method="post" class="d-grid gap-3">
-    <input class="form-control" type="text" name="name" placeholder="이름을 입력하세요" required>
     <input class="form-control" type="number" name="amount" placeholder="구매 금액 (예: 5000)" required>
     <button class="btn btn-main">구매하기</button>
   </form>

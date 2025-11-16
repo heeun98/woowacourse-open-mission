@@ -1,8 +1,7 @@
 package com.woowacourse.open_mission.servletJspSession;
 
-import com.woowacourse.open_mission.servletJsp.domain.IssuedLotto;
-import com.woowacourse.open_mission.servletJsp.domain.LottoTickets;
-import com.woowacourse.open_mission.servletJsp.domain.MemberRepository;
+
+import com.woowacourse.open_mission.servletJspSession.domain.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -19,28 +18,29 @@ import java.util.List;
 public class LottoBuyServletJspSession extends HttpServlet {
 
     MemberRepository memberRepository = MemberRepository.getInstance();
+    MemberTicketsRepository memberTicketsRepository = MemberTicketsRepository.getInstance();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         log.info("LottoBuyServletJsp 호출");
-        String name = extractParam(request,"name");
+//        String name = extractParam(request,"name");
+        HttpSession session = request.getSession();
+
+        Long id = (Long) session.getAttribute("id");
         int amount = Integer.parseInt(extractParam(request, "amount"));
 
         LottoTickets lottoTickets = new LottoTickets(amount);
         List<IssuedLotto> issuedLottos = lottoTickets.buyTickets();
 
         //IssuedLotto 티켓한장!!
-
-        memberRepository.   save(name, lottoTickets);
+        Member member = memberRepository.findById(id);
+        memberTicketsRepository.save(member.getUsername(), lottoTickets);
 
         //세션에 로또티켓들과 이름 넣기
-        HttpSession session = request.getSession();
         session.setAttribute("issuedLotto", issuedLottos);
-        session.setAttribute("name", name);
 
-
-        request.setAttribute("name", name);
+        request.setAttribute("member", member);
         request.setAttribute("issuedLottos", issuedLottos);
         request.getRequestDispatcher("/WEB-INF/viewsV2/lotto-issued.jsp").forward(request, response);
 
