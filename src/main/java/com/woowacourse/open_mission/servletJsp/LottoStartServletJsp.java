@@ -1,5 +1,6 @@
 package com.woowacourse.open_mission.servletJsp;
 
+import com.woowacourse.open_mission.servletJsp.domain.MemberRepository;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,9 +16,14 @@ import java.io.IOException;
 public class LottoStartServletJsp extends HttpServlet {
 
 
+    private final MemberRepository memberRepository = MemberRepository.getInstance();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("LottoStartServletJsp 호출");
+
+
+        int totalBuyCount = memberRepository.getTotalBuyCount();
+        request.setAttribute("totalBuyCount", totalBuyCount);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/lotto-start.jsp");
 
