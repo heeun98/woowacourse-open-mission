@@ -21,21 +21,58 @@
 <head>
     <meta charset="UTF-8">
     <title>로또 당첨 결과</title>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f2f7f3; /* 우테코 파스텔 그린 */
+            font-family: 'Noto Sans KR', sans-serif;
+            min-height: 100vh;
+        }
+
+        .result-box {
+            background: #ffffff;
+            padding: 2.2rem;
+            border-radius: 14px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 650px;
+        }
+
+        /* 메인 버튼 */
+        .btn-main {
+            background-color: #74c69d;
+            border: none;
+            color: white;
+            font-weight: 500;
+        }
+        .btn-main:hover {
+            background-color: #5cb78c;
+            color: white;
+        }
+
+        /* 테이블 */
+        .table thead {
+            background-color: #e8f4ee;
+        }
+    </style>
 </head>
 
-<body class="bg-light d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
+<body class="d-flex justify-content-center align-items-center">
 
-<div class="bg-white p-5 rounded shadow" style="max-width: 600px; width: 100%;">
-    <h2 class="text-center mb-3">🎉 로또 당첨 결과</h2>
+<div class="result-box">
+
+    <h2 class="text-center mb-3 fw-semibold">🎉 로또 당첨 결과</h2>
 
     <p class="text-center text-muted mb-4">
-        <strong><%= name %></strong> 님의 결과입니다.<br>
+        <strong><%= name %></strong> 님의 당첨 결과입니다.<br>
         <small>조회 일시: <%= createdAt %></small>
     </p>
 
-    <table class="table table-bordered text-center">
-        <thead class="table-light">
+    <table class="table table-bordered text-center mb-4">
+        <thead>
         <tr>
             <th>결과</th>
             <th>개수</th>
@@ -49,12 +86,10 @@
         <%
         } else {
             for (Map.Entry<String, Integer> entry : resultMap.entrySet()) {
-                String message = entry.getKey();
-                Integer count = entry.getValue();
         %>
         <tr>
-            <td><%= message %></td>
-            <td><%= count %>개</td>
+            <td><%= entry.getKey() %></td>
+            <td><%= entry.getValue() %>개</td>
         </tr>
         <%
                 }
@@ -63,9 +98,8 @@
         </tbody>
     </table>
 
-    <div class="text-center mt-4">
-        <a href="/v3/servlet/jsp" class="btn btn-secondary w-100">메인으로 돌아가기</a>
-    </div>
+    <a href="/v3/servlet/jsp" class="btn btn-main w-100">메인으로 돌아가기</a>
+
 </div>
 
 </body>
