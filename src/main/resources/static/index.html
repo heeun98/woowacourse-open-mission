@@ -38,7 +38,6 @@
                 <h4 class="fw-bold">1️⃣ Servlet 단일 구조</h4>
                 <p class="text-muted mt-2">
                     HTML View + 로직 + 상태 저장을 모두 Servlet에서 처리
-                    👉 MVC 필요성을 체감하기 위함
                 </p>
             </div>
         </a>
@@ -50,21 +49,20 @@
             <div class="card stage-card p-4 text-center">
                 <h4 class="fw-bold">2️⃣ Servlet + JSP 분리</h4>
                 <p class="text-muted mt-2">
-                    화면 렌더링 책임을 JSP로 이동
-                    Controller / View 분리 시작
+                    화면 렌더링 책임을 JSP로 이동<br>
+                    Controller / View 역할 분리 시작
                 </p>
             </div>
         </a>
     </div>
 
-    <!-- 3단계 -->
+    <!-- 3단계 (세션 로그인) -->
     <div class="col-md-4">
-        <a href="/lotto-v3" class="text-decoration-none text-dark">
+        <a href="/servlet/jsp/login" class="text-decoration-none text-dark">
             <div class="card stage-card p-4 text-center">
-                <h4 class="fw-bold">3️⃣ Servlet + JSP + DB</h4>
+                <h4 class="fw-bold">3️⃣ Session 기반 로그인 추가</h4>
                 <p class="text-muted mt-2">
-                    H2 DB 연동하여 로또 구매 기록 저장
-                    MVC 구조 기반 아키텍처 강화
+                    사용자의 로그인 상태를 Session에 저장하여 인증 기능 구현
                 </p>
             </div>
         </a>

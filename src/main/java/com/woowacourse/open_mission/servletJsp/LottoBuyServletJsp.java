@@ -33,7 +33,7 @@ public class LottoBuyServletJsp extends HttpServlet {
 
         //IssuedLotto 티켓한장!!
 
-        memberRepository.save(name, lottoTickets);
+        memberRepository.   save(name, lottoTickets);
 
         //세션에 로또티켓들과 이름 넣기
         HttpSession session = request.getSession();
