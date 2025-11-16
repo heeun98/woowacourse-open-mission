@@ -9,8 +9,7 @@ public class Member {
     private String username; // 사용자 이름
     private String password; // 사용자 비밀번호
 
-    public Member(Long id, String loginId, String username, String password) {
-        this.id = id;
+    public Member(String loginId, String username, String password) {
         this.loginId = loginId;
         this.username = username;
         this.password = password;
