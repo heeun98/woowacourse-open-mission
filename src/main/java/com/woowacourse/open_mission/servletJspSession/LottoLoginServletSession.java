@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -23,9 +24,6 @@ public class LottoLoginServletSession extends HttpServlet {
         String loginId = request.getParameter("loginId");
         String password = request.getParameter("password");
 
-        Optional<Member> member1 = memberRepository.findByLoginId("gywls5184");
-        log.info(member1.toString());
-
         Optional<Member> optionalMember = memberRepository.findByLoginId(loginId);
 
         if (optionalMember.isEmpty()) {
@@ -38,6 +36,9 @@ public class LottoLoginServletSession extends HttpServlet {
             response.sendRedirect("/v3/servlet/jsp/login-form");
             return;
         }
+
+        HttpSession session = request.getSession();
+        session.setAttribute("id", member.getId());
 
         response.sendRedirect("/v3/servlet/jsp");
     }
