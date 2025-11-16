@@ -4,14 +4,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MemberRepository {
 
     // key: 이름, value: 구매한 로또들
     private Map<String, List<LottoTickets>> memberTickets;
 
+    // 총 구매 횟수
+    private AtomicInteger totalBuyCount = new AtomicInteger(0);
+
     private MemberRepository() {
-        this.memberTickets = new HashMap<>();
+        this.memberTickets = new ConcurrentHashMap<>();
     }
 
     private static final MemberRepository memberRepository = new MemberRepository();
@@ -24,7 +29,14 @@ public class MemberRepository {
         List<LottoTickets> lottoTicketsList = new ArrayList<>();
         lottoTicketsList.add(lottoTickets);
         memberTickets.put(name, lottoTicketsList);
+        addTotalCount();
+
     }
+    public void addTotalCount() {
+        totalBuyCount.incrementAndGet();
+    }
+
+
 
     public static MemberRepository getInstance() {
         return memberRepository;
@@ -33,4 +45,10 @@ public class MemberRepository {
     public List<LottoTickets> getLottoTicketsByName(String name) {
         return List.copyOf(memberTickets.get(name));
     }
+
+    public int getTotalBuyCount() {
+        return totalBuyCount.get();
+    }
+
+
 }
