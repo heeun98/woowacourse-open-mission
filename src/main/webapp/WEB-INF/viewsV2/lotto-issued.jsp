@@ -1,9 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.woowacourse.open_mission.servletJsp.domain.IssuedLotto" %>
+<%@ page import="com.woowacourse.open_mission.servletJspSession.domain.IssuedLotto" %>
+<%@ page import="com.woowacourse.open_mission.servletJspSession.domain.Member" %>
 
 <%
-  String name = (String) request.getAttribute("name");
+  Member member = (Member) request.getAttribute("member");
   List<IssuedLotto> issuedLottos = (List<IssuedLotto>) request.getAttribute("issuedLottos");
 %>
 
@@ -78,7 +79,7 @@
 <body class="d-flex flex-column align-items-center py-5">
 
 <div class="card card-custom text-center">
-  <h2 class="fw-bold mb-4">🎉 <%= name %> 님, 로또를 <%= issuedLottos.size() %>장 구매하셨습니다!</h2>
+  <h2 class="fw-bold mb-4">🎉 <%= member.getUsername() %> 님, 로또를 <%= issuedLottos.size() %>장 구매하셨습니다!</h2>
   <hr>
 
   <div class="mb-4">
