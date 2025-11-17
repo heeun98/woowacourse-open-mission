@@ -1,7 +1,7 @@
 package com.woowacourse.open_mission.servletJspSession;
 
 import com.woowacourse.open_mission.Rank;
-import com.woowacourse.open_mission.servletJspSession.domain.*;
+import com.woowacourse.open_mission.domain.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -71,10 +71,9 @@ public class LottoWinningServletJspSession extends HttpServlet {
                 });
         memberResultRepository.addMemberResult(memberResult);
 
-        // 세션에 결과 저장
-        log.info("memberResult 넣기 전: "+ session.getId());
+
         session.setAttribute("memberResult", memberResult);
-        log.info("memberResult 넣은 후: "+ session.getId());
+
 
         // JSP로 전달할 데이터 설정
         request.setAttribute("lotto", lotto);

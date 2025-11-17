@@ -1,4 +1,4 @@
-package com.woowacourse.open_mission.servletJspSession.domain;
+package com.woowacourse.open_mission.domain;
 
 import com.woowacourse.open_mission.Rank;
 

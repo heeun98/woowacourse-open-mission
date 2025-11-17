@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="com.woowacourse.open_mission.servletJspSession.domain.MemberResult" %>
+<%@ page import="com.woowacourse.open_mission.domain.MemberResult" %>
 
 <%
     Map<Long, MemberResult> memberResultMap =

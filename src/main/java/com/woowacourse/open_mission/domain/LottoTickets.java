@@ -1,9 +1,9 @@
-package com.woowacourse.open_mission.servletJspSession.domain;
+package com.woowacourse.open_mission.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.woowacourse.open_mission.servletJspSession.domain.LottoConstant.*;
+import static com.woowacourse.open_mission.domain.LottoConstant.*;
 
 public class LottoTickets {
 

@@ -1,6 +1,6 @@
 package com.woowacourse.open_mission.servletJspSession;
 
-import com.woowacourse.open_mission.servletJspSession.domain.MemberResult;
+import com.woowacourse.open_mission.domain.MemberResult;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

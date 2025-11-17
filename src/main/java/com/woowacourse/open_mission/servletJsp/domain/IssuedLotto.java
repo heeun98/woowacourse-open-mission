@@ -1,6 +1,5 @@
 package com.woowacourse.open_mission.servletJsp.domain;
 
-import java.util.Collections;
 import java.util.List;
 
 public class IssuedLotto {

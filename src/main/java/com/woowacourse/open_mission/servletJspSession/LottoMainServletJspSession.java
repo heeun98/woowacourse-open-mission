@@ -1,7 +1,7 @@
 package com.woowacourse.open_mission.servletJspSession;
 
-import com.woowacourse.open_mission.servletJspSession.domain.Member;
-import com.woowacourse.open_mission.servletJspSession.domain.MemberRepository;
+import com.woowacourse.open_mission.domain.Member;
+import com.woowacourse.open_mission.domain.MemberRepository;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
-<%@ page import="com.woowacourse.open_mission.servletJspSession.domain.MemberResult" %>
+<%@ page import="com.woowacourse.open_mission.domain.MemberResult" %>
 <%@ page import="java.util.Map" %>
 
 <%
