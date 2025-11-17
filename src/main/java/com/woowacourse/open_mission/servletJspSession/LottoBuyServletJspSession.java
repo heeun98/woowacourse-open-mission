@@ -37,7 +37,7 @@ public class LottoBuyServletJspSession implements LottoController {
         model.put("member", member);
         model.put("issuedLotto", issuedLottos);
 
-        return "lotto-issued.jsp";
+        return "lotto-issued";
 
     }
 
