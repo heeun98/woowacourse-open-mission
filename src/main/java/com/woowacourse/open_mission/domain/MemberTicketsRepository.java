@@ -1,4 +1,4 @@
-package com.woowacourse.open_mission.servletJspSession.domain;
+package com.woowacourse.open_mission.domain;
 
 import java.util.ArrayList;
 import java.util.List;

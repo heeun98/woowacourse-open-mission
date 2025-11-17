@@ -1,7 +1,6 @@
 package com.woowacourse.open_mission.servletJsp;
 
 import com.woowacourse.open_mission.Rank;
-import com.woowacourse.open_mission.servlet.domain.LottoResult;
 import com.woowacourse.open_mission.servletJsp.domain.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

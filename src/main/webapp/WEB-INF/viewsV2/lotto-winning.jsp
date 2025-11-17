@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
-<%@ page import="com.woowacourse.open_mission.servletJspSession.domain.Lotto" %>
+<%@ page import="com.woowacourse.open_mission.domain.Lotto" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.woowacourse.open_mission.servletJspSession.domain.Member" %>
+<%@ page import="com.woowacourse.open_mission.domain.Member" %>
 
 <%
   Member member = (Member) request.getAttribute("member");

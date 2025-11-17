@@ -1,6 +1,4 @@
-package com.woowacourse.open_mission.servletJspSession.domain;
-
-import com.woowacourse.open_mission.servletJspSession.domain.Generator;
+package com.woowacourse.open_mission.domain;
 
 import java.util.List;
 
