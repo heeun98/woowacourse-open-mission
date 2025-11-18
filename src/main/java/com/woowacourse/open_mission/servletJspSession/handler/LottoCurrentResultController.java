@@ -1,4 +1,4 @@
-package com.woowacourse.open_mission.servletJspSession;
+package com.woowacourse.open_mission.servletJspSession.handler;
 
 import com.woowacourse.open_mission.domain.MemberResult;
 import com.woowacourse.open_mission.servletJspSession.servlet.LottoController;
@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Map;
 
 @Slf4j
-public class LottoCurrentResultServletSession implements LottoController {
+public class LottoCurrentResultController implements LottoController {
 
     @Override
     public String process(Map<String, String> param, Map<String, Object> model, Session session) {

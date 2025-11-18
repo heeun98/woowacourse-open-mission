@@ -1,4 +1,4 @@
-package com.woowacourse.open_mission.servletJspSession;
+package com.woowacourse.open_mission.servletJspSession.handler;
 
 import com.woowacourse.open_mission.domain.*;
 import com.woowacourse.open_mission.servletJspSession.servlet.LottoController;

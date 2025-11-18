@@ -1,4 +1,4 @@
-package com.woowacourse.open_mission.servletJspSession;
+package com.woowacourse.open_mission.servletJspSession.handler;
 
 import com.woowacourse.open_mission.Rank;
 import com.woowacourse.open_mission.domain.*;
@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Random;
 
 @Slf4j
-public class LottoWinningServletJspSession implements LottoController {
+public class LottoWinningController implements LottoController {
 
     private final MemberResultRepository memberResultRepository = MemberResultRepository.getInstance();
     private final MemberRepository memberRepository = MemberRepository.getInstance();

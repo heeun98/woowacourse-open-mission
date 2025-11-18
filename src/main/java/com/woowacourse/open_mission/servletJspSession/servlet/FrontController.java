@@ -1,6 +1,6 @@
 package com.woowacourse.open_mission.servletJspSession.servlet;
 
-import com.woowacourse.open_mission.servletJspSession.*;
+import com.woowacourse.open_mission.servletJspSession.handler.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,16 +20,16 @@ public class FrontController extends HttpServlet {
 
     public FrontController() {
         controllerMap.put("/v3/servlet/jsp/buy", new LottoBuyController());
-        controllerMap.put("/v3/servlet/jsp/current-result", new LottoCurrentResultServletSession());
-        controllerMap.put("/v3/servlet/jsp/history", new LottoHistoryServletJspSession());
-        controllerMap.put("/v3/servlet/jsp/join-form", new LottoJoinFormServlet());
-        controllerMap.put("/v3/servlet/jsp/login-form", new LottoLoginFormServletSession());
-        controllerMap.put("/v3/servlet/jsp/login", new LottoLoginServletSession());
-        controllerMap.put("/v3/servlet/jsp", new LottoMainServletJspSession());
-        controllerMap.put("/v3/servlet/jsp/register", new LottoRegisterServletSession());
-        controllerMap.put("/v3/servlet/jsp/result", new LottoResultServletJspSession());
-        controllerMap.put("/v3/servlet/jsp/lotto", new LottoStartServletJspSession());
-        controllerMap.put("/v3/servlet/jsp/winning", new LottoWinningServletJspSession());
+        controllerMap.put("/v3/servlet/jsp/current-result", new LottoCurrentResultController());
+        controllerMap.put("/v3/servlet/jsp/history", new LottoHistoryController());
+        controllerMap.put("/v3/servlet/jsp/join-form", new LottoJoinFormController());
+        controllerMap.put("/v3/servlet/jsp/login-form", new LottoLoginFormController());
+        controllerMap.put("/v3/servlet/jsp/login", new LottoLoginController());
+        controllerMap.put("/v3/servlet/jsp", new LottoMainController());
+        controllerMap.put("/v3/servlet/jsp/register", new LottoRegisterController());
+        controllerMap.put("/v3/servlet/jsp/result", new LottoResultController());
+        controllerMap.put("/v3/servlet/jsp/lotto", new LottoStartController());
+        controllerMap.put("/v3/servlet/jsp/winning", new LottoWinningController());
     }
 
     @Override
