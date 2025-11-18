@@ -9,15 +9,48 @@
 
     <style>
         body {
-            background: #f7f9fc;
+            background: #f2f4f8; /* 파스텔 톤 연그레이 */
+            font-family: 'Pretendard', sans-serif;
         }
+
+        h1 {
+            color: #4c5c68;
+        }
+
         .stage-card {
+            border-radius: 18px;
+            background: #ffffff;
+            border: none;
             transition: 0.25s;
             cursor: pointer;
+            padding: 32px 20px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
         }
+
         .stage-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.13);
+        }
+
+        /* 파스텔 포인트 컬러 */
+        .stage-1 {
+            border-top: 6px solid #a3c9a8; /* pastel green */
+        }
+        .stage-2 {
+            border-top: 6px solid #b6c8f0; /* pastel blue */
+        }
+        .stage-3 {
+            border-top: 6px solid #e7bfe8; /* pastel purple */
+        }
+
+        .stage-title {
+            font-weight: 700;
+            color: #3c4245;
+        }
+
+        .stage-desc {
+            color: #6d7a81;
+            font-size: 15px;
         }
     </style>
 </head>
@@ -31,13 +64,14 @@
 </div>
 
 <div class="row g-4">
+
     <!-- 1단계 -->
     <div class="col-md-4">
-        <a href="/servlet" class="text-decoration-none text-dark">
-            <div class="card stage-card p-4 text-center">
-                <h4 class="fw-bold">1️⃣ Servlet 단일 구조</h4>
-                <p class="text-muted mt-2">
-                    HTML View + 로직 + 상태 저장을 모두 Servlet에서 처리
+        <a href="/servlet" class="text-decoration-none">
+            <div class="stage-card stage-1 text-center">
+                <h4 class="stage-title">1️⃣ Servlet 단일 구조</h4>
+                <p class="stage-desc mt-2">
+                    HTML View + 로직 + 상태 저장을<br>모두 Servlet에서 처리
                 </p>
             </div>
         </a>
@@ -45,10 +79,10 @@
 
     <!-- 2단계 -->
     <div class="col-md-4">
-        <a href="/servlet/jsp" class="text-decoration-none text-dark">
-            <div class="card stage-card p-4 text-center">
-                <h4 class="fw-bold">2️⃣ Servlet + JSP 분리</h4>
-                <p class="text-muted mt-2">
+        <a href="/servlet/jsp" class="text-decoration-none">
+            <div class="stage-card stage-2 text-center">
+                <h4 class="stage-title">2️⃣ Servlet + JSP 분리</h4>
+                <p class="stage-desc mt-2">
                     화면 렌더링 책임을 JSP로 이동<br>
                     Controller / View 역할 분리 시작
                 </p>
@@ -58,15 +92,17 @@
 
     <!-- 3단계 (세션 로그인) -->
     <div class="col-md-4">
-        <a href="/v3/servlet/jsp/login-form" class="text-decoration-none text-dark">
-            <div class="card stage-card p-4 text-center">
-                <h4 class="fw-bold">3️⃣ Session 기반 로그인 추가</h4>
-                <p class="text-muted mt-2">
-                    사용자의 로그인 상태를 Session에 저장하여 인증 기능 구현
+        <a href="/v3/servlet/jsp/login-form" class="text-decoration-none">
+            <div class="stage-card stage-3 text-center">
+                <h4 class="stage-title">3️⃣ Session 기반 로그인 추가</h4>
+                <p class="stage-desc mt-2">
+                    사용자의 로그인 상태를 Session에 저장하여<br>
+                    인증 기능 구현
                 </p>
             </div>
         </a>
     </div>
+
 </div>
 
 </body>

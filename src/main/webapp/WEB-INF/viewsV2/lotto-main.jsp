@@ -14,48 +14,54 @@
 
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #fff7fb; /* 훨씬 더 연한 파스텔 핑크 */
+            font-family: 'Noto Sans KR', sans-serif;
         }
 
         /* 카드 스타일 */
         .card-custom {
             width: 420px;
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 3rem 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: #ffffff;
+            box-shadow: 0 4px 14px rgba(255, 182, 219, 0.18); /* 연핑크 그림자 */
         }
 
-        /* 메인 버튼 */
+        /* 메인 버튼 (연핑크 톤) */
         .btn-main {
-            background-color: #74c69d;
+            background-color: #ffc7e1;   /* 기존보다 훨씬 부드러운 색 */
             border: none;
-            color: white;
-            font-weight: 500;
+            color: #ffffff;
+            font-weight: 600;
         }
         .btn-main:hover {
-            background-color: #5cb78c;
+            background-color: #ffb3d6;
             color: white;
         }
 
-        /* 보조 버튼 */
+        /* 보조 버튼 (밝은 테두리) */
         .btn-outline-main {
             background-color: #ffffff;
-            color: #74c69d;
-            border: 2px solid #74c69d;
-            font-weight: 500;
+            color: #ffb3d6;
+            border: 2px solid #ffb3d6;
+            font-weight: 600;
         }
         .btn-outline-main:hover {
-            background-color: #5cb78c;
+            background-color: #ffb3d6;
             color: white;
-            border-color: #5cb78c;
+            border-color: #ffb3d6;
         }
 
         /* 환영 메시지 */
         .welcome-message {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #74c69d;
+            color: #ffb3d6;   /* 훨씬 더 연한 핑크 텍스트 */
             margin-bottom: 1.5rem;
+        }
+
+        .title {
+            color: #ffb3d6;
         }
     </style>
 </head>
@@ -66,10 +72,10 @@
 
     <!-- 환영 메시지 -->
     <div class="welcome-message">
-        <%= member != null ? member.getUsername() + "님 환영합니다!" : "게스트님 환영합니다!" %>
+        <%= member != null ? member.getUsername() + "님 환영합니다! 🌸" : "방문자님 환영합니다! 🌸" %>
     </div>
 
-    <h1 class="fw-bold mb-4">🎰 로또 서비스</h1>
+    <h1 class="fw-bold mb-4 title">🎰 로또 서비스</h1>
 
     <div class="d-grid gap-3">
         <a class="btn btn-main btn-lg" href="/v3/servlet/jsp/lotto">
@@ -77,7 +83,7 @@
         </a>
 
         <a class="btn btn-outline-main btn-lg" href="/v3/servlet/jsp/history">
-            📜 조회하기
+            📜 구매 이력 조회하기
         </a>
     </div>
 </div>

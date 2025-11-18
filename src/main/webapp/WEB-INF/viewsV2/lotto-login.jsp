@@ -11,49 +11,56 @@
 
     <style>
         body {
-            background-color: #f2f7f3; /* 우테코 분위기의 은은한 그린톤 */
+            background-color: #fdeef4; /* 부드러운 파스텔 핑크 */
             height: 100vh;
             font-family: 'Noto Sans KR', sans-serif;
         }
+
         .login-box {
             width: 360px;
             background: #ffffff;
-            border-radius: 12px;
-            padding: 2.2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-radius: 14px;
+            padding: 2.4rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
         }
 
-        /* 메인 버튼: 톤 다운 초록 */
+        /* 메인 버튼: 파스텔 로즈핑크 */
         .btn-main {
-            background-color: #74c69d;
+            background-color: #f5a9c5;
             border: none;
             color: white;
-            font-weight: 500;
+            font-weight: 600;
         }
         .btn-main:hover {
-            background-color: #5cb78c;
+            background-color: #f08fb5;
             color: white;
         }
 
-        /* 회원가입 버튼: 깔끔한 outline + 연그린 */
+        /* 회원가입 버튼: 핑크 라인 + 연핑 */
         .btn-join {
-            border: 2px solid #74c69d;
-            color: #74c69d;
-            font-weight: 500;
+            border: 2px solid #f5a9c5;
+            color: #f5a9c5;
+            font-weight: 600;
             background: white;
         }
         .btn-join:hover {
-            background-color: #e8f4ee;
-            color: #5cb78c;
+            background-color: #fde3ed;
+            color: #f08fb5;
         }
 
-        /* 메인으로 돌아가기 버튼 */
+        /* 메인으로 돌아가기 버튼: 그레이 중간톤 */
         .btn-back {
-            border: 1px solid #ced4da;
-            color: #6c757d;
+            border: 1px solid #d1cfd4;
+            color: #7d7a80;
         }
         .btn-back:hover {
-            background-color: #f1f3f5;
+            background-color: #f4f4f4;
+        }
+
+        /* 인풋 박스 라이트 핑크 포커스 효과 */
+        .form-control:focus {
+            border-color: #f5a9c5;
+            box-shadow: 0 0 4px rgba(245, 169, 197, 0.5);
         }
     </style>
 </head>
@@ -62,7 +69,9 @@
 
 <div class="login-box text-center">
 
-    <h2 class="mb-4" style="font-weight:600;">🔐 로그인</h2>
+    <h2 class="mb-4" style="font-weight:600; color:#f08fb5;">
+        💗 로그인
+    </h2>
 
     <!-- 오류 메시지 출력 -->
     <%

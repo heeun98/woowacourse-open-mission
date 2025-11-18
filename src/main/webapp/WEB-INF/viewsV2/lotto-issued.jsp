@@ -13,74 +13,80 @@
 <head>
   <meta charset="UTF-8">
   <title>로또 구매 결과</title>
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
     body {
-      background-color: #f8f9fa;
+      background-color: #fdf1f5; /* 파스텔 핑크 배경 */
+      font-family: 'Noto Sans KR', sans-serif;
     }
 
-    /* 카드 스타일 */
+    /* 카드 */
     .card-custom {
       width: 520px;
-      border-radius: 12px;
+      background: #ffffff;
+      border-radius: 14px;
       padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
     }
 
     /* 티켓 박스 */
     .ticket-box {
-      display: inline-block;
-      padding: 12px 20px;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      margin: 6px;
-      font-size: 18px;
-      background: #ffffff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      background: #fff1f6; /* 연핑크 */
+      border: 1px solid #f8cfe0;
+      padding: 14px 20px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
+    /* 숫자 칩 */
     .ticket-number {
-      display:inline-block;
-      background:#e8f4ee;
-      padding:6px 12px;
-      border-radius:50%;
-      margin:3px;
-      font-weight:bold;
+      display: inline-block;
+      background: #ffe5ee; /* 더 연한 파스텔 핑크 */
+      padding: 8px 13px;
+      margin: 4px;
+      border-radius: 50%;
+      font-weight: bold;
+      color: #cc5c82;
+      border: 1px solid #f3bfd3;
     }
 
     /* 메인 버튼 */
     .btn-main {
-      background-color: #74c69d;
+      background-color: #f08fb0; /* 파스텔 로즈핑크 */
       border: none;
       color: white;
-      font-weight: 500;
+      font-weight: 600;
     }
     .btn-main:hover {
-      background-color: #5cb78c;
+      background-color: #e66c97;
       color: white;
     }
 
-    /* 보조 버튼 */
+    /* 서브 버튼 */
     .btn-outline-main {
-      background-color: #ffffff;
-      color: #74c69d;
-      border: 2px solid #74c69d;
-      font-weight: 500;
+      background: white;
+      border: 2px solid #f08fb0;
+      color: #f08fb0;
+      font-weight: 600;
     }
     .btn-outline-main:hover {
-      background-color: #5cb78c;
-      color: white;
-      border-color: #5cb78c;
+      background: #f8d2e0;
+      color: #e66c97;
+      border-color: #e66c97;
     }
   </style>
 </head>
 
-<body class="d-flex flex-column align-items-center py-5">
+<body class="d-flex justify-content-center align-items-start py-5">
 
 <div class="card card-custom text-center">
-  <h2 class="fw-bold mb-4">🎉 <%= member.getUsername() %> 님, 로또를 <%= issuedLottos.size() %>장 구매하셨습니다!</h2>
-  <hr>
+  <h2 class="fw-bold mb-4" style="color:#d45f8c;">
+    🎉 <%= member.getUsername() %> 님, 로또 <%= issuedLottos.size() %>장을 구매하셨습니다!
+  </h2>
 
   <div class="mb-4">
     <%
@@ -88,8 +94,8 @@
       for (IssuedLotto issuedLotto : issuedLottos) {
         List<Integer> numbers = issuedLotto.getIssuedNumbers();
     %>
-    <div class="ticket-box mb-2">
-      <strong><%= index++ %>번 티켓</strong><br>
+    <div class="ticket-box">
+      <strong style="color:#d45f8c;"><%= index++ %>번 티켓</strong><br>
       <% for (Integer num : numbers) { %>
       <span class="ticket-number"><%= num %></span>
       <% } %>
@@ -97,9 +103,7 @@
     <% } %>
   </div>
 
-  <hr class="my-4">
-
-  <div class="d-grid gap-3">
+  <div class="d-grid gap-3 mt-3">
     <a class="btn btn-main" href="/v3/servlet/jsp/winning">🎯 당첨 번호 생성하기</a>
     <a class="btn btn-outline-main" href="/v3/servlet/jsp">⬅ 메인으로 돌아가기</a>
   </div>

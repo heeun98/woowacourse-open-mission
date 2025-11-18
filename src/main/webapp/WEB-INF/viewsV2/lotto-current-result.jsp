@@ -27,36 +27,49 @@
 
     <style>
         body {
-            background-color: #f2f7f3; /* 우테코 파스텔 그린 */
+            background-color: #ffeff7; /* 파스텔 핑크 배경 */
             font-family: 'Noto Sans KR', sans-serif;
             min-height: 100vh;
         }
 
         .result-box {
             background: #ffffff;
-            padding: 2.2rem;
-            border-radius: 14px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            padding: 2.4rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
             width: 100%;
             max-width: 650px;
         }
 
+        h2 {
+            color: #d77fa1; /* 메인 포인트 핑크 */
+        }
+
+        .text-muted small {
+            color: #b67386 !important;
+        }
+
         /* 메인 버튼 */
         .btn-main {
-            background-color: #74c69d;
+            background-color: #f4a7c1; /* 파스텔 로즈 */
             border: none;
             color: white;
-            font-weight: 500;
+            font-weight: 600;
         }
         .btn-main:hover {
-            background-color: #5cb78c;
+            background-color: #e08dac; /* 더 진한 로즈 */
             color: white;
         }
 
         /* 테이블 */
         .table thead {
-            background-color: #e8f4ee;
+            background-color: #ffe0eb; /* 부드러운 핑크 헤더 */
         }
+
+        .table tbody tr td {
+            vertical-align: middle;
+        }
+
     </style>
 </head>
 
@@ -64,7 +77,7 @@
 
 <div class="result-box">
 
-    <h2 class="text-center mb-3 fw-semibold">🎉 로또 당첨 결과</h2>
+    <h2 class="text-center mb-3 fw-semibold">🎀 로또 당첨 결과</h2>
 
     <p class="text-center text-muted mb-4">
         <strong><%= name %></strong> 님의 당첨 결과입니다.<br>

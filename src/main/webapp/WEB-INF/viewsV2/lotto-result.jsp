@@ -26,30 +26,32 @@
 
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #fff5f8; /* 파스텔 핑크 */
+            font-family: 'Noto Sans KR', sans-serif;
         }
 
         .card-custom {
             width: 500px;
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            background: #ffffff;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
         }
 
         /* 테이블 헤더 */
         .table thead {
-            background-color: #e8f4ee;
+            background-color: #fde2ea;
         }
 
         /* 메인 버튼 */
         .btn-main {
-            background-color: #74c69d;
+            background-color: #f7a8c4;
             border: none;
             color: white;
-            font-weight: 500;
+            font-weight: 600;
         }
         .btn-main:hover {
-            background-color: #5cb78c;
+            background-color: #f291b4;
             color: white;
         }
     </style>
@@ -57,8 +59,8 @@
 
 <body class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
 
-<div class="card card-custom text-center">
-    <h2 class="fw-bold mb-3">🎉 <%= name %>님의 로또 결과</h2>
+<div class="card-custom text-center">
+    <h2 class="fw-bold mb-3" style="color:#f291b4;">🎀 <%= name %>님의 로또 결과</h2>
 
     <p class="text-muted mb-4">
         조회 일시: <strong><%= createdAt %></strong>
