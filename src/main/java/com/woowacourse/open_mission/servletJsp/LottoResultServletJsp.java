@@ -21,7 +21,11 @@ public class LottoResultServletJsp extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long resultId = Long.valueOf(request.getParameter("resultId"));
         MemberResult memberResult = memberResultRepository.getMemberResultById(resultId);
+
         request.setAttribute("memberResult", memberResult);
+
+
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/lotto-result.jsp");
         dispatcher.forward(request, response);
     }

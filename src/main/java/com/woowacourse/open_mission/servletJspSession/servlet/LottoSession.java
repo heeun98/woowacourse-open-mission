@@ -1,5 +1,4 @@
-package com.woowacourse.open_mission.servletJspSession.frontController;
-
+package com.woowacourse.open_mission.servletJspSession.servlet;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -14,11 +13,11 @@ public class LottoSession implements Session {
 
     @Override
     public Object getAttribute(String name) {
-        return null;
+        return httpSession.getAttribute(name);
     }
 
     @Override
     public void setAttribute(String name, Object value) {
-
+        httpSession.setAttribute(name, value);
     }
 }
