@@ -1,20 +1,17 @@
 package com.woowacourse.open_mission.servletJspSession;
 
-
 import com.woowacourse.open_mission.domain.*;
-import com.woowacourse.open_mission.servletJspSession.frontController.LottoController;
-import com.woowacourse.open_mission.servletJspSession.frontController.Session;
+import com.woowacourse.open_mission.servletJspSession.servlet.LottoController;
+import com.woowacourse.open_mission.servletJspSession.servlet.Session;
 import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 import java.util.Map;
 
 @Slf4j
-//@WebServlet(name = "LottoBuyServletJspSession", value = "/v3/servlet/jsp/buy")
-public class LottoBuyServletJspSession implements LottoController {
+public class LottoBuyController implements LottoController {
 
     MemberRepository memberRepository = MemberRepository.getInstance();
     MemberTicketsRepository memberTicketsRepository = MemberTicketsRepository.getInstance();
-
 
     @Override
     public String process(Map<String, String> param, Map<String, Object> model, Session session) {
@@ -25,20 +22,18 @@ public class LottoBuyServletJspSession implements LottoController {
 
         LottoTickets lottoTickets = new LottoTickets(amount);
         List<IssuedLotto> issuedLottos = lottoTickets.buyTickets();
+        log.info("issuedLottos : " + issuedLottos.toString());
 
 
-        //IssuedLotto 티켓한장!!
         Member member = memberRepository.findById(id);
         memberTicketsRepository.save(member.getUsername(), lottoTickets);
 
-        session.setAttribute("issuedLotto", issuedLottos);
+        session.setAttribute("issuedLottos", issuedLottos);
 
 
         model.put("member", member);
-        model.put("issuedLotto", issuedLottos);
+        model.put("issuedLottos", issuedLottos);
 
-        return "lotto-issued.jsp";
-
+        return "lotto-issued";
     }
-
 }

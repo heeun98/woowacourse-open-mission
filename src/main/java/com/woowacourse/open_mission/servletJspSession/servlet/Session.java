@@ -1,4 +1,4 @@
-package com.woowacourse.open_mission.servletJspSession.frontController;
+package com.woowacourse.open_mission.servletJspSession.servlet;
 
 public interface Session {
 

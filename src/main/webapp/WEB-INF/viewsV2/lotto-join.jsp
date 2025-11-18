@@ -10,7 +10,7 @@
 
   <style>
     body {
-      background-color: #f2f7f3; /* 연한 우테코 그린톤 */
+      background-color: #fdeef4; /* 파스텔 핑크 배경 */
       height: 100vh;
       font-family: 'Noto Sans KR', sans-serif;
     }
@@ -18,31 +18,36 @@
     .register-box {
       width: 380px;
       background: #ffffff;
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 2.2rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
 
-    /* 메인 버튼 (톤다운 그린) */
+    /* 메인 버튼 (파스텔 핑크) */
     .btn-main {
-      background-color: #74c69d;
+      background-color: #f7b6cd;   /* 우테코 느낌의 연핑크 메인 */
       border: none;
       color: white;
       font-weight: 500;
     }
     .btn-main:hover {
-      background-color: #5cb78c;
+      background-color: #e39ab7;  /* 살짝 톤 다운 */
       color: white;
     }
 
-    /* 로그인 링크 */
+    /* 로그인 링크 (핑크 톤) */
     .login-link {
-      color: #5cb78c;
+      color: #d77fa7;
       font-weight: 500;
     }
     .login-link:hover {
-      color: #3f8f6b;
+      color: #c05f8c;
       text-decoration: underline;
+    }
+
+    label {
+      font-weight: 500;
+      color: #b65e86;
     }
   </style>
 </head>
@@ -50,7 +55,7 @@
 <body class="d-flex justify-content-center align-items-center">
 
 <div class="register-box">
-  <h2 class="text-center mb-4 fw-semibold">📝 회원가입</h2>
+  <h2 class="text-center mb-4 fw-semibold" style="color:#c05f8c;">💗 회원가입</h2>
 
   <form action="/v3/servlet/jsp/register" method="post">
 

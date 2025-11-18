@@ -23,7 +23,7 @@ public class LottoBuyServletJsp extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        log.info("LottoBuyServletJsp 호출");
+        log.info("호출 = " + request.getRequestURI());
         String name = extractParam(request,"name");
         int amount = Integer.parseInt(extractParam(request, "amount"));
 
@@ -32,7 +32,7 @@ public class LottoBuyServletJsp extends HttpServlet {
 
         //IssuedLotto 티켓한장!!
 
-        memberRepository.   save(name, lottoTickets);
+        memberRepository.save(name, lottoTickets);
 
         //세션에 로또티켓들과 이름 넣기
         HttpSession session = request.getSession();

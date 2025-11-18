@@ -1,21 +1,13 @@
 package com.woowacourse.open_mission.servletJspSession;
 
-import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import com.woowacourse.open_mission.servletJspSession.servlet.LottoController;
+import com.woowacourse.open_mission.servletJspSession.servlet.Session;
+import java.util.Map;
 
-import java.io.IOException;
-
-@WebServlet(name = "LottoJoinServlet", value = "/v3/servlet/jsp/join-form")
-public class LottoJoinFormServlet extends HttpServlet {
+public class LottoJoinFormServlet implements LottoController {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/viewsV2/lotto-join.jsp");
-        dispatcher.forward(request, response);
+    public String process(Map<String, String> param, Map<String, Object> model, Session session) {
+        return "lotto-join";
     }
 }

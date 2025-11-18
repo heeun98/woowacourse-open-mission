@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 
 <%
-  // 서블릿에서 전달된 누적 판매 개수 읽기
   Integer totalBuyCount = (Integer) request.getAttribute("totalBuyCount");
   if (totalBuyCount == null) totalBuyCount = 0;
 %>
@@ -15,49 +14,48 @@
 
   <style>
     body {
-      background-color: #f8f9fa;
+      background-color: #fce4ec; /* 파스텔 핑크 */
+      font-family: 'Noto Sans KR', sans-serif;
     }
 
-    /* 카드 스타일 */
     .card-custom {
-      width: 400px;
-      border-radius: 12px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 430px;
+      border-radius: 14px;
+      padding: 2.6rem 2.2rem;
+      background: #ffffff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      border: 3px solid #f8bbd0;
     }
 
-    /* 통계 박스 */
     .stats-box {
-      background: #e8f4ee;
-      border-radius: 8px;
-      padding: 10px 12px;
+      background: #f8bbd0;
+      border-radius: 10px;
+      padding: 12px 14px;
       font-size: 14px;
-      color: #495057;
+      color: #6b2f43;
+      font-weight: 500;
     }
 
-    /* 메인 버튼 */
     .btn-main {
-      background-color: #74c69d;
+      background-color: #f48fb1;
       border: none;
       color: white;
-      font-weight: 500;
+      font-weight: 600;
     }
     .btn-main:hover {
-      background-color: #5cb78c;
+      background-color: #ec7097;
       color: white;
     }
 
-    /* 보조 버튼 */
     .btn-outline-main {
       background-color: #ffffff;
-      color: #74c69d;
-      border: 2px solid #74c69d;
-      font-weight: 500;
+      color: #f48fb1;
+      border: 2px solid #f48fb1;
+      font-weight: 600;
     }
     .btn-outline-main:hover {
-      background-color: #5cb78c;
+      background-color: #f48fb1;
       color: white;
-      border-color: #5cb78c;
     }
   </style>
 </head>
@@ -65,20 +63,22 @@
 <body class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
 
 <div class="card card-custom text-center">
-  <h1 class="fw-bold mb-3">🎰 로또 구매하기</h1>
+  <h1 class="fw-bold mb-3" style="color:#f06292;">🎰 로또 구매하기</h1>
 
-  <!-- 누적 판매량 표시 -->
   <div class="stats-box mb-4">
     지금까지 판매된 로또 수: <strong><%= totalBuyCount %></strong> 장
   </div>
 
-  <!-- 구매 폼 -->
   <form action="/v3/servlet/jsp/buy" method="post" class="d-grid gap-3">
-    <input class="form-control" type="number" name="amount" placeholder="구매 금액 (예: 5000)" required>
+    <input class="form-control"
+           style="border:2px solid #f8bbd0;"
+           type="number"
+           name="amount"
+           placeholder="구매 금액 (예: 5000)"
+           required>
     <button class="btn btn-main">구매하기</button>
   </form>
 
-  <!-- 메인으로 돌아가기 -->
   <div class="d-grid gap-2 mt-4">
     <a href="/v3/servlet/jsp" class="btn btn-outline-main">
       ⬅ 메인으로 돌아가기

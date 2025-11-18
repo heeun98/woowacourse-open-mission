@@ -18,7 +18,7 @@
 
     <style>
         body {
-            background-color: #f2f7f3; /* 우테코 파스텔 톤 */
+            background-color: #fdeef1; /* 파스텔 핑크 배경 */
             font-family: 'Noto Sans KR', sans-serif;
         }
 
@@ -29,23 +29,32 @@
             margin-top: 40px;
             max-width: 820px;
             border-radius: 14px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
         }
 
         .btn-main {
-            background-color: #74c69d;
+            background-color: #f8a5b5; /* 포인트 핑크 */
             border: none;
-            color: white;
+            color: #fff;
             font-weight: 500;
         }
         .btn-main:hover {
-            background-color: #5cb78c;
-            color: white;
+            background-color: #f58fa4;
+            color: #fff;
         }
 
         thead {
-            background-color: #e8f4ee; /* 부드러운 테이블 헤더 */
+            background-color: #fde2e4; /* 파스텔 핑크 헤더 */
         }
+
+        .btn-back {
+            border: 1px solid #d3cfd4;
+            color: #6b6b6b;
+        }
+        .btn-back:hover {
+            background-color: #f6f6f6;
+        }
+
     </style>
 </head>
 
@@ -98,7 +107,7 @@
     </table>
 
     <div class="text-center mt-4">
-        <a href="/v3/servlet/jsp" class="btn btn-outline-secondary px-4">⬅ 메인으로 돌아가기</a>
+        <a href="/v3/servlet/jsp" class="btn btn-back px-4">⬅ 메인으로 돌아가기</a>
     </div>
 </div>
 

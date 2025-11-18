@@ -20,7 +20,7 @@ public class LottoCurrentResultServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        log.info("LottoCurrentResultServlet 호출");
+        log.info("호출 = " + request.getRequestURI());
         String name = request.getParameter("name");
         log.info("이름 : {}" , name);
         MemberResult memberResult = (MemberResult) request.getSession().getAttribute("memberResult");

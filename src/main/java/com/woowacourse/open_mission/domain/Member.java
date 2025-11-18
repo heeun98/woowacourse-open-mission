@@ -9,6 +9,17 @@ public class Member {
     private String username; // 사용자 이름
     private String password; // 사용자 비밀번호
 
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", loginId='" + loginId + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
     public Member(String loginId, String username, String password) {
         this.loginId = loginId;
         this.username = username;

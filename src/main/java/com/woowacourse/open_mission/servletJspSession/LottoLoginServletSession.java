@@ -1,45 +1,36 @@
 package com.woowacourse.open_mission.servletJspSession;
-
 import com.woowacourse.open_mission.domain.Member;
 import com.woowacourse.open_mission.domain.MemberRepository;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import com.woowacourse.open_mission.servletJspSession.servlet.LottoController;
+import com.woowacourse.open_mission.servletJspSession.servlet.Session;
 import lombok.extern.slf4j.Slf4j;
-
-import java.io.IOException;
+import java.util.Map;
 import java.util.Optional;
 
-@WebServlet(name = "LottoLoginServletSession", value = "/v3/servlet/jsp/login")
+
 @Slf4j
-public class LottoLoginServletSession extends HttpServlet {
+public class LottoLoginServletSession implements LottoController {
 
     MemberRepository memberRepository = MemberRepository.getInstance();
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String loginId = request.getParameter("loginId");
-        String password = request.getParameter("password");
+    public String process(Map<String, String> param, Map<String, Object> model, Session session) {
+
+        String loginId = param.get("loginId");
+        String password = param.get("password");
 
         Optional<Member> optionalMember = memberRepository.findByLoginId(loginId);
 
         if (optionalMember.isEmpty()) {
-            response.sendRedirect("/v3/servlet/jsp/login-form");
-            return;
+            return "redirect:/v3/servlet/jsp/login-form";
         }
-
         Member member = optionalMember.get();
+
         if (!member.getPassword().equals(password)) {
-            response.sendRedirect("/v3/servlet/jsp/login-form");
-            return;
+            return "redirect:/v3/servlet/jsp/login-form";
         }
-
-        HttpSession session = request.getSession();
         session.setAttribute("id", member.getId());
-
-        response.sendRedirect("/v3/servlet/jsp");
+        return "redirect:/v3/servlet/jsp";
     }
+
 }

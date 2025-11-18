@@ -1,4 +1,4 @@
-package com.woowacourse.open_mission.servletJspSession.frontController;
+package com.woowacourse.open_mission.servletJspSession.servlet;
 
 import com.woowacourse.open_mission.servletJspSession.*;
 import jakarta.servlet.ServletException;
@@ -6,18 +6,20 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @WebServlet(name = "FrontController", value = "/v3/servlet/jsp/*")
 public class FrontController extends HttpServlet {
 
     private Map<String, LottoController> controllerMap = new HashMap<>();
 
     public FrontController() {
-        controllerMap.put("/v3/servlet/jsp/buy", new LottoBuyServletJspSession());
+        controllerMap.put("/v3/servlet/jsp/buy", new LottoBuyController());
         controllerMap.put("/v3/servlet/jsp/current-result", new LottoCurrentResultServletSession());
         controllerMap.put("/v3/servlet/jsp/history", new LottoHistoryServletJspSession());
         controllerMap.put("/v3/servlet/jsp/join-form", new LottoJoinFormServlet());
@@ -40,6 +42,7 @@ public class FrontController extends HttpServlet {
         Map<String, Object> model = new HashMap<>();
         LottoSession session = new LottoSession(request.getSession());
 
+        log.info("호출 : " + request.getRequestURI());
         String viewName = controller.process(paramMap, model, session);
 
         if (viewName.startsWith("redirect:")) {
@@ -63,4 +66,7 @@ public class FrontController extends HttpServlet {
     private View viewResolver(String viewName) {
         return new View("/WEB-INF/viewsV2/" + viewName + ".jsp");
     }
+
+
+
 }

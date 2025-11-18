@@ -2,32 +2,29 @@ package com.woowacourse.open_mission.servletJspSession;
 
 import com.woowacourse.open_mission.domain.Member;
 import com.woowacourse.open_mission.domain.MemberRepository;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import com.woowacourse.open_mission.servletJspSession.servlet.LottoController;
+import com.woowacourse.open_mission.servletJspSession.servlet.Session;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.IOException;
+import java.util.Map;
 
-@WebServlet(name = "LottoRegisterServletSession", value = "/v3/servlet/jsp/register")
+
 @Slf4j
-public class LottoRegisterServletSession extends HttpServlet {
+public class LottoRegisterServletSession implements LottoController {
 
     MemberRepository memberRepository = MemberRepository.getInstance();
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.info("LottoRegisterServletSession 호출");
+    public String process(Map<String, String> param, Map<String, Object> model, Session session) {
 
-        String username = request.getParameter("username");
-        String loginId = request.getParameter("loginId");
-        String password = request.getParameter("password");
+        String username = param.get("username");
+        String loginId = param.get("loginId");
+        String password = param.get("password");
 
         Member member = new Member(loginId, username, password);
+        log.info("member = " + member.toString());
         memberRepository.save(member);
-
-        response.sendRedirect("/v3/servlet/jsp/login-form");
+        return "redirect:/v3/servlet/jsp/login-form";
     }
+
 }
