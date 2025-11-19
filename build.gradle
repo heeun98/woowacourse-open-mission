@@ -1,8 +1,6 @@
 plugins {
 	id 'java'
 	id 'war'
-	id 'org.springframework.boot' version '3.5.7'
-	id 'io.spring.dependency-management' version '1.1.7'
 }
 
 group = 'com.woowacourse'
@@ -27,10 +25,9 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
 
 	// JSP 엔진
-	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:10.1.28'
 
 	// JSTL (JSP에서 ${} EL, <c:forEach> 등 사용 가능)
 	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0'
@@ -40,17 +37,17 @@ dependencies {
 	compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
 
 	// Lombok
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok:1.18.30'
+	annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
-	// H2 DB (조회 기능까지 가면 씀)
-	runtimeOnly 'com.h2database:h2'
+
+	implementation 'org.slf4j:slf4j-api:2.0.13'
+	implementation 'org.slf4j:slf4j-simple:2.0.13'
 
 	// 미션 유틸
 	implementation 'com.github.woowacourse-projects:mission-utils:1.2.0'
 
-	// Test
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
