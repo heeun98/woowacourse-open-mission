@@ -164,12 +164,12 @@ brew --prefix tomcat
 - HTML 수정 시 서블릿 코드를 직접 수정해야 하는 불편함
 
 
-### 2단계 – JSP로 View 분리 
+### 2단계 – JSP로 View 분리 + Model 분리
 
 **목표:**
 
 - **출력(View)은 JSP에서 처리**하도록 리펙토링 합니다.
-- Servlet은 **Controller 역할(요청 수신 + 데이터 전달)**만 담당합니다.
+- Servlet은 Controller 역할(요청 수신 + 데이터 전달)만 담당합니다.
 - "JSP는 HTML+표현, Servlet은 흐름 제어"의 역할만 하도록 합니다.
 - **request.setAttribute()를 통해 모델 데이터를 JSP에 전달**합니다.
 - **RequestDispatcher.forward()를 사용**하여 JSP로 제어를 넘깁니다.
@@ -201,7 +201,7 @@ ${lottoTickets}  // EL 표현식으로 데이터 접근
 - **현재 Spring MVC 구조와 유사한 형태**로 발전
 - 비즈니스 로직을 Service 클래스로 완전히 분리
 
-** 구현 내용:**
+**구현 내용:**
 
 #### 1) Session 기반 로그인
 - 사용자 로그인 시 Session에 사용자 정보 저장
