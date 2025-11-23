@@ -298,4 +298,8 @@ src/main/
         └── viewsV2/          # 3단계 JSP 파일 (로그인 포함)
 ```
 
+### 메인 페이지
+<img width="1322" height="675" alt="스크린샷 2025-11-24 오전 3 09 24" src="https://github.com/user-attachments/assets/4cb44c75-8b1f-431e-9a81-f8dc35ae1499" />
+
+
 
